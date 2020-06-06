@@ -1,0 +1,25 @@
+{
+  "author": "josue rojas <josuerojas.rojas@gmail.com>",
+  "name": "express-graphql-react-boilerplate",
+  "private": true,
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "prefix:client": "yarn workspace client",
+    "prefix:server": "yarn workspace server",
+    "start:client": "yarn prefix:client start",
+    "start:server": "yarn prefix:server start-dev",
+    "start": "yarn prefix:server start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josuerojasrojas/express-graphql-react-boilerplate"
+  },
+  "bugs": {
+    "url": "https://github.com/josuerojasrojas/express-graphql-react-boilerplate/issues"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
+}

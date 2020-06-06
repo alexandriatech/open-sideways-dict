@@ -1,0 +1,29 @@
+# -------------
+# Queries
+
+type Query {
+  greeting: String!
+  user: User!
+}
+
+# -------------
+# Mutations
+
+type Mutation {
+  exampleMutation(input: String!): exampleMutationOutput!
+  authGoogle(accessToken: String!): User!
+}
+
+# -------------
+# Rest of stuff
+
+type User {
+  token: String
+  name: String!
+}
+
+type exampleMutationOutput {
+  key: String!
+  name: String!
+  input: String!
+}
