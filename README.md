@@ -1,4 +1,4 @@
-# sideways-dictionary-opensource
+# [behistun inscription](https://en.wikipedia.org/wiki/Behistun_Inscription)
 a clone and open source for sideways dictionary. 
 
 
