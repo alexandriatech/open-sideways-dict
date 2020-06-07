@@ -32,12 +32,14 @@ const authGoogle = async (_, { accessToken }, { req, res }) => {
 
 const Mutation = {
   authGoogle: authGoogle,
-  exampleMutation: (_, { input }) => {
-    return {
-      key: "thisisakey",
-      name: "thisisaname",
-      input: input,
-    };
+  updateUser: (_, { user }) => {
+    return {};
+  },
+  addWordDef: (_, { wordDefData }) => {
+    return {};
+  },
+  addWord: (_, { wordData }) => {
+    return {};
   },
 };
 
