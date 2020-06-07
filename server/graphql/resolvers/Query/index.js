@@ -14,8 +14,13 @@ function getUser(context) {
 }
 
 const Query = {
-  greeting: () => getGreeting(new Date()),
   user: (_, __, context) => runIfAuthenticated(context, () => getUser(context)),
+  word: (_, __, context) => {
+    return {};
+  },
+  allWords: (_, __, context) => {
+    return [];
+  },
 };
 
 module.exports = Query;
