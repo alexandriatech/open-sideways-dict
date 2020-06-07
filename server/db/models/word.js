@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "Word",
     {
       word: DataTypes.STRING,
+      isPublish: DataTypes.BOOLEAN,
     },
     {}
   );
