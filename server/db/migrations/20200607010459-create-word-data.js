@@ -17,9 +17,6 @@ module.exports = {
       upvotes: {
         type: Sequelize.INTEGER,
       },
-      isPublish: {
-        type: Sequelize.BOOLEAN,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

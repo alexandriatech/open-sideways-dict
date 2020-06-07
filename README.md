@@ -1,5 +1,5 @@
 # [behistun inscription](https://en.wikipedia.org/wiki/Behistun_Inscription)
-a clone and open source for sideways dictionary. 
+a clone and open source for [sideways dictionary](https://sidewaysdictionary.com/#/). 
 
 
 proposed erd tables

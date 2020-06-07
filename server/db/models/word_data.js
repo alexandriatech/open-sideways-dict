@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
       word_id: DataTypes.INTEGER,
       user_id: DataTypes.INTEGER,
       upvotes: DataTypes.INTEGER,
-      isPublish: DataTypes.BOOLEAN,
     },
     {}
   );
