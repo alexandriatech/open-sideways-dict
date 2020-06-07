@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       through: "Word_tag",
       foreignKey: "word_id",
     });
+    Word.hasMany(models.Related_terms);
   };
   return Word;
 };

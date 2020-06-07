@@ -2,28 +2,91 @@
 # Queries
 
 type Query {
-  greeting: String!
   user: User!
+  word(id: Integer!): Word
+  allWords: [Word!]!
 }
 
 # -------------
 # Mutations
 
 type Mutation {
-  exampleMutation(input: String!): exampleMutationOutput!
   authGoogle(accessToken: String!): User!
+  updateUser(user: UpdateUserData!): User!
+  addWordDef(wordDefData: AddWordDefData!): WordData!
+  addWord(wordData: AddWordData!): Word!
 }
 
 # -------------
-# Rest of stuff
+# Types
 
 type User {
+  id: Integer!
   token: String
-  name: String!
+  email: String!
+  username: String!
+  createdAt: Date!
+  updatedAt: Date!
+  wordDefinitions: [WordData!]!
+}
+
+type Word {
+  id: Integer!
+  word: String!
+  isPublish: Boolean!
+  createdAt: Date!
+  updatedAt: Date!
+  wordData: [WordData!]!
+  relatatedTerms: [Word!]!
+  tags: [Tag!]!
+}
+
+type WordData {
+  id: Integer!
+  word_id: Integer!
+  user_id: Integer!
+  upvotes: Integer!
+  definition: String!
+  createdAt: Date!
+  updatedAt: Date!
+  word: Word!
+  user: User!
+}
+
+type Tag {
+  id: Integer!
+  tag: String!
+  createdAt: Date!
+  updatedAt: Date!
+  word: Word!
+  relatedWord: Word!
 }
 
 type exampleMutationOutput {
   key: String!
   name: String!
   input: String!
+}
+
+# -------------
+# Input types
+
+type UpdateUserData {
+  email: String
+  username: String
+}
+
+type addWordDef {
+  word_id: Integer!
+  definition: String!
+}
+
+type AddWordData {
+  word: String!
+  tags: [AddWordDataTag!]
+  definition: String!
+}
+
+type AddWordDataTag {
+  tag: String!
 }

@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Related_terms.associate = function (models) {
-    Related_terms.belongsTo(models.Company, { foreignKey: "word_id" });
+    Related_terms.belongsTo(models.Word, { foreignKey: "word_id" });
   };
   return Related_terms;
 };

@@ -6,13 +6,13 @@ module.exports = (sequelize, DataTypes) => {
       word_id: DataTypes.INTEGER,
       user_id: DataTypes.INTEGER,
       upvotes: DataTypes.INTEGER,
+      definition: DataTypes.STRING,
     },
     {}
   );
   Word_data.associate = function (models) {
     Word_data.belongsTo(models.User, { foreignKey: "user_id" });
     Word_data.belongsTo(models.Word, { foreignKey: "word_id" });
-    Word_data.hasMany(models.Related_terms);
   };
   return Word_data;
 };
