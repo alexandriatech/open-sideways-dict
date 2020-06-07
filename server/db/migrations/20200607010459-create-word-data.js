@@ -17,6 +17,9 @@ module.exports = {
       upvotes: {
         type: Sequelize.INTEGER,
       },
+      definition: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

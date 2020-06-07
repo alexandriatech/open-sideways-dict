@@ -3,6 +3,18 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
+    "db:create": "sequelize db:create",
+    "db:create:all": "sequelize db:create && NODE_ENV=test sequelize db:create",
+    "db:drop": "sequelize db:drop",
+    "db:drop:all": "sequelize db:drop && NODE_ENV=test sequelize db:drop",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:all": "sequelize db:migrate && NODE_ENV=test sequelize db:migrate",
+    "db:rollback": "sequelize db:migrate:undo",
+    "db:rollback:all": "sequelize db:migrate:undo && NODE_ENV=test sequelize db:migrate:undo",
+    "db:reset": "yarn db:drop && yarn db:setup",
+    "db:setup": "yarn db:create && yarn db:migrate",
+    "db:seed": "npx sequelize db:seed:all",
+    "sequelize": "sequelize",
     "start": "node index.js",
     "start-dev": "nodemon index.js"
   },

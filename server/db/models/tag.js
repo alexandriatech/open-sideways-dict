@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
       through: "Word_tag",
       foreignKey: "tag_id",
     });
-    // associations can be defined here
   };
   return Tag;
 };
