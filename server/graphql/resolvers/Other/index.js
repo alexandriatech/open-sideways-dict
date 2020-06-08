@@ -13,6 +13,7 @@ const otherResolvers = {
   },
   Word: {
     wordData: async (word) => await word.getWordDef(),
+    relatedTerms: async (word) => await word.getRelatedTerms(),
   },
 };
 

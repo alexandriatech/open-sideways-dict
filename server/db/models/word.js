@@ -15,7 +15,16 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "word_id",
       as: "User",
     });
-    Word.hasMany(models.Related_terms);
+    Word.belongsToMany(models.Word, {
+      through: "Related_terms",
+      foreignKey: "word_id",
+      as: "RelatedTerms",
+    });
+    Word.belongsToMany(models.Word, {
+      through: "Related_terms",
+      foreignKey: "related_word_id",
+      as: "SubRelatedTerms",
+    });
   };
   return Word;
 };

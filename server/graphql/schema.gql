@@ -40,7 +40,7 @@ type Word {
   createdAt: Date!
   updatedAt: Date!
   wordData: [WordData!]!
-  relatatedTerms: [Word!]!
+  relatedTerms: [Word!]!
 }
 
 type WordData {
