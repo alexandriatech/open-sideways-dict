@@ -2,9 +2,11 @@
 # Queries
 
 type Query {
-  user: User!
-  word(id: Int!): Word
   allWords: [Word!]!
+  getTag(id: Int!): Tag!
+  getUser(id: Int!): User!
+  getWord(id: Int!): Word!
+  getWordDef(id: Int!): WordData!
 }
 
 # -------------
@@ -27,7 +29,8 @@ type User {
   username: String!
   createdAt: Date!
   updatedAt: Date!
-  wordDefinitions: [WordData!]!
+  words: [Word!]!
+  wordDefs: [WordData!]!
 }
 
 type Word {
@@ -37,8 +40,7 @@ type Word {
   createdAt: Date!
   updatedAt: Date!
   wordData: [WordData!]!
-  relatatedTerms: [Word!]!
-  tags: [Tag!]!
+  relatedTerms: [Word!]!
 }
 
 type WordData {
@@ -51,6 +53,7 @@ type WordData {
   updatedAt: Date!
   word: Word!
   user: User!
+  tags: [Tag!]!
 }
 
 type Tag {
@@ -58,8 +61,7 @@ type Tag {
   tag: String!
   createdAt: Date!
   updatedAt: Date!
-  word: Word!
-  relatedWord: Word!
+  wordsDefs: [WordData!]!
 }
 
 # -------------
