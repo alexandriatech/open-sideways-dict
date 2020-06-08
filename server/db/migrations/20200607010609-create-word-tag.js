@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      word_id: {
+      word_data_id: {
         type: Sequelize.INTEGER,
       },
       tag_id: {
