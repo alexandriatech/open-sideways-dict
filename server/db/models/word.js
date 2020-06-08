@@ -9,9 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   Word.associate = function (models) {
+    Word.hasMany(models.Word_data, { as: "WordDef", foreignKey: "word_id" });
     Word.belongsToMany(models.User, {
       through: "Word_data",
       foreignKey: "word_id",
+      as: "User",
     });
     Word.belongsToMany(models.Tag, {
       through: "Word_tag",

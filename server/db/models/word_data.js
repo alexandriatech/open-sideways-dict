@@ -3,7 +3,14 @@ module.exports = (sequelize, DataTypes) => {
   const Word_data = sequelize.define(
     "Word_data",
     {
-      word_id: DataTypes.INTEGER,
+      word_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "User", // name of Target model
+          key: "id",
+        },
+      },
       user_id: DataTypes.INTEGER,
       upvotes: DataTypes.INTEGER,
       definition: DataTypes.STRING,

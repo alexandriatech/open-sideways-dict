@@ -1,26 +1,27 @@
 const { runIfAuthenticated } = require("../../utils");
+const { db } = require("../../../db");
 
-// example return greeting string
-function getGreeting(date) {
-  const time = date.getHours() * 60 + date.getMinutes();
-  if (time > 299 && time < 660) return "Morning";
-  else if (time > 660 && time < 1020) return "Afternoon";
-  else return "Evening";
+async function getUser(id, context) {
+  return await db.User.findByPk(id);
 }
 
-// TODO: this should be getting the user from database
-function getUser(context) {
-  return { name: context.currentUser.name };
+async function getWordDef(id, context) {
+  return await db.Word_data.findByPk(id);
+}
+
+async function getWord(id, context) {
+  return await db.Word.findByPk(id);
+}
+
+async function allWords(context) {
+  return await db.Word.findAll();
 }
 
 const Query = {
-  user: (_, __, context) => runIfAuthenticated(context, () => getUser(context)),
-  word: (_, __, context) => {
-    return {};
-  },
-  allWords: (_, __, context) => {
-    return [];
-  },
+  getUser: (_, { id }, context) => getUser(id, context),
+  getWordDef: (_, { id }, context) => getWordDef(id, context),
+  getWord: (_, { id }, context) => getWord(id, context),
+  allWords: (_, __, context) => allWords(context),
 };
 
 module.exports = Query;

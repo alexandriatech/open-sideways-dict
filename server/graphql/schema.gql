@@ -2,8 +2,9 @@
 # Queries
 
 type Query {
-  user: User!
-  word(id: Int!): Word
+  getUser(id: Int!): User!
+  getWordDef(id: Int!): WordData!
+  getWord(id: Int!): Word!
   allWords: [Word!]!
 }
 
@@ -27,7 +28,8 @@ type User {
   username: String!
   createdAt: Date!
   updatedAt: Date!
-  wordDefinitions: [WordData!]!
+  words: [Word!]!
+  wordDefs: [WordData!]!
 }
 
 type Word {
