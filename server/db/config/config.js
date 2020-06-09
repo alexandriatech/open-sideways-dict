@@ -1,17 +1,14 @@
 module.exports = {
   development: {
-    DATABASE_URL: process.env.DATABASE_URL,
-    database: process.env.PROJECT_NAME || "database_dev",
+    use_env_variable: "DATABASE_URL",
     dialect: "postgres",
   },
   test: {
-    DATABASE_URL: process.env.DATABASE_URL,
-    database: process.env.PROJECT_NAME || "database_test",
+    use_env_variable: "DATABASE_URL",
     dialect: "postgres",
   },
   production: {
-    DATABASE_URL: process.env.DATABASE_URL,
-    database: process.env.PROJECT_NAME || "database_prod",
+    use_env_variable: "DATABASE_URL",
     dialect: "postgres",
   },
 };

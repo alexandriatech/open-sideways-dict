@@ -1,11 +1,20 @@
 require("dotenv").config();
 const express = require("express");
 const server = require("./graphql");
-const { db } = require("./db");
+const port = process.env.PORT || 4000;
+const path = require("path");
+const publicFolder = "../build";
 
 const app = express();
 server.applyMiddleware({ app });
+app.use(express.static(path.join(__dirname, publicFolder)));
 
-app.listen({ port: 4000 }, () =>
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+app.get("/*", (_, res) => {
+  res.sendFile(path.join(__dirname, `${publicFolder}/index.html`));
+});
+
+app.listen({ port: port }, () =>
+  console.log(
+    `🚀 Server ready at http://localhost:${port}${server.graphqlPath}`
+  )
 );
