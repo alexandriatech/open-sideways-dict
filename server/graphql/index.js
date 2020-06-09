@@ -1,3 +1,4 @@
+require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const { ApolloServer, gql } = require("apollo-server-express");
@@ -21,10 +22,11 @@ const context = ({ req, res }) => {
 
 const onConnect = async (connectionParams) => true;
 
-const isIntrospectionOn =
-  process.env.NODE_ENV !== "production" ||
-  (process.env.NODE_ENV === "production" &&
-    process.env.IS_INTROSPECTION_ON === "true");
+// const isIntrospectionOn =
+//   process.env.NODE_ENV !== "production" ||
+//   (process.env.NODE_ENV === "production" &&
+//     process.env.IS_INTROSPECTION_ON === "true");
+const isIntrospectionOn = true;
 
 const server = new ApolloServer({
   typeDefs,

@@ -5,7 +5,7 @@ db.sequelize
   .then(() => {
     console.log("connected");
   })
-  .catch((e) => console.log("error"));
+  .catch((e) => console.log("error", e));
 
 module.exports = {
   db,

@@ -9,7 +9,8 @@
     "prefix:server": "yarn workspace server",
     "start:client": "yarn prefix:client start",
     "start:server": "yarn prefix:server start-dev",
-    "start": "yarn prefix:server start"
+    "start": "yarn prefix:server start",
+    "heroku-postbuild": "yarn prefix:client build"
   },
   "repository": {
     "type": "git",
