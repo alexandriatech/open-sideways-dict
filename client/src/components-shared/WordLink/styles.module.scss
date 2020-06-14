@@ -1,0 +1,11 @@
+.link {
+  text-decoration: none;
+  font-size: 5rem;
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+}
+.currentLetter {
+  text-decoration: underline;
+}
