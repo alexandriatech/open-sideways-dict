@@ -1,7 +1,7 @@
 const word_datas = [
   {
     word_id: 1,
-    user_id: 1,
+    user_id: 2,
     upvotes: 10,
     definition: "Some animal that comes from wolves",
   },

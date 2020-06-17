@@ -1,46 +1,13 @@
-const { authenticateGoogle } = require("./googlepassport.js");
-const jwt = require("jsonwebtoken");
-
-// might seperate this function cause it's pretty big
-const authGoogle = async (_, { accessToken }, { req, res }) => {
-  req.body = {
-    ...req.body,
-    access_token: accessToken,
-  };
-  try {
-    const { data, info } = await authenticateGoogle(req, res);
-    if (data) {
-      const name = `${data.profile.name.givenName} ${data.profile.name.familyName}`;
-      return {
-        token: jwt.sign({ name }, process.env.JWT_SECRET, { expiresIn: "1d" }),
-        name: name,
-      };
-    }
-    if (info) {
-      switch (info.code) {
-        case "ETIMEDOUT":
-          return new Error("time out");
-        default:
-          return new Error("unexpected error");
-      }
-    }
-    return new Error("server error");
-  } catch (error) {
-    return error;
-  }
-};
+const { addWord } = require("./addWord");
+const { addWordDef } = require("./addWordDef");
+const { authGoogle } = require("./authGoogle");
+const { updateUser } = require("./updateUser");
 
 const Mutation = {
+  addWord: addWord,
+  addWordDef: addWordDef,
   authGoogle: authGoogle,
-  updateUser: (_, { user }) => {
-    return {};
-  },
-  addWordDef: (_, { wordDefData }) => {
-    return {};
-  },
-  addWord: (_, { wordData }) => {
-    return {};
-  },
+  updateUser: updateUser,
 };
 
 module.exports = Mutation;
