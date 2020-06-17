@@ -1,16 +1,13 @@
+const { addWord } = require("./addWord");
+const { addWordDef } = require("./addWordDef");
 const { authGoogle } = require("./authGoogle");
+const { updateUser } = require("./updateUser");
 
 const Mutation = {
+  addWord: addWord,
+  addWordDef: addWordDef,
   authGoogle: authGoogle,
-  updateUser: (_, { user }) => {
-    return {};
-  },
-  addWordDef: (_, { wordDefData }) => {
-    return {};
-  },
-  addWord: (_, { wordData }) => {
-    return {};
-  },
+  updateUser: updateUser,
 };
 
 module.exports = Mutation;
