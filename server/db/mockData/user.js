@@ -5,7 +5,7 @@ const users = [
   },
   {
     username: "Josue Rojas Z",
-    email: "josuerojas@alexandria.com",
+    email: "josuerojas.rojas@gmail.com",
   },
   {
     username: "Antonio Solis",
@@ -14,6 +14,10 @@ const users = [
   {
     username: "Steve Jobs",
     email: "steve@apple.com",
+  },
+  {
+    username: "Josue No Words",
+    email: "josue@nowords.com",
   },
 ];
 
