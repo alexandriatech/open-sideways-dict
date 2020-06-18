@@ -1,0 +1,20 @@
+.link {
+  text-decoration: none;
+  font-size: 5rem;
+  &:hover .transparent,
+  &:hover .highlighted {
+    opacity: 1;
+  }
+}
+
+.transparent {
+  opacity: 0.3;
+  transition: opacity 200ms;
+}
+.highlighted {
+  opacity: 0.65;
+  transition: opacity 200ms;
+}
+.noWordFound .highlighted {
+  opacity: 0.3;
+}
