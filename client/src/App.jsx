@@ -12,11 +12,7 @@ const App = () => {
       <UserContextProvider>
         <Routes />
       </UserContextProvider>
-      <WordLink
-        letterInput="Landing Pagx"
-        word="Landing Page"
-        link="/dummyLink"
-      />
+      <WordLink userInput="Education" word="Education" link="/dummyLink" />
     </ApolloProvider>
   );
 };
