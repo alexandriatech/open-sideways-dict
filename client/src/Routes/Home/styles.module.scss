@@ -1,0 +1,10 @@
+.altArrow {
+  .altArrowIcon {
+    background-image: url("../../assets/arrow-right-alt.svg");
+  }
+  &:hover {
+    .altArrowIcon {
+      background-image: url("../../assets/arrow-right.svg");
+    }
+  }
+}
