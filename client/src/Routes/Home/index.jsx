@@ -1,6 +1,7 @@
 import React from "react";
 import WordLink from "components-shared/WordLink";
 import Link from "components-shared/Link";
+import Button from "components-shared/Button";
 
 const Home = () => {
   return (
@@ -20,6 +21,10 @@ const Home = () => {
       <Link appearance="none" href={"/"}>
         Test Link none appearance
       </Link>
+      <Button>Default Button</Button>
+      <div style={{ backgroundColor: "black", padding: "20px" }}>
+        <Button appearance="alt">Alt style Button</Button>
+      </div>
     </div>
   );
 };
