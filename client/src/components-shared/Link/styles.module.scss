@@ -1,12 +1,10 @@
 .link {
   display: inline-block;
-  color: black;
   position: relative;
   text-decoration: none;
   .line {
     content: "";
     display: block;
-    background-color: black;
     height: 1px;
     margin-left: 0;
     transition: 250ms ease-out;

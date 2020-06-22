@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
@@ -8,24 +8,33 @@ const Link = ({
   appearance,
   children,
   className,
+  color,
+  hoverColor,
   href,
   isExternal,
   ...props
 }) => {
+  const [currColor, setCurrColor] = useState(color);
   const _className = classNames(styles.link, className, styles[appearance]);
+  const linkStyle = { color: currColor };
+  const lineStyle = { backgroundColor: currColor };
+  const line = <div className={styles.line} style={lineStyle}></div>;
+
+  props.onMouseEnter = () => setCurrColor(hoverColor);
+  props.onMouseLeave = () => setCurrColor(color);
 
   if (isExternal)
     return (
-      <a href className={_className} {...props}>
+      <a href className={_className} style={linkStyle} {...props}>
         {children}
-        <div className={styles.line}></div>
+        {line}
       </a>
     );
 
   return (
-    <LinkRouter to={href} className={_className} {...props}>
+    <LinkRouter to={href} className={_className} style={linkStyle} {...props}>
       {children}
-      <div className={styles.line}></div>
+      {line}
     </LinkRouter>
   );
 };
@@ -34,6 +43,8 @@ Link.propTypes = {
   appearance: PropTypes.oneOf(["default", "alt", "none"]),
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  color: PropTypes.string,
+  hoverColor: PropTypes.string,
   href: PropTypes.string.isRequired,
   isExternal: PropTypes.bool,
 };
@@ -41,6 +52,8 @@ Link.propTypes = {
 Link.defaultProps = {
   appearance: "default",
   isExternal: false,
+  color: "rgba(0, 0, 0, .6)",
+  hoverColor: "rgba(0, 0, 0, 1)",
 };
 
 export default Link;
