@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 
@@ -12,10 +11,18 @@ function WordLink({ userInput, word, link }) {
   for (let i = 0; i < word.length; i++) {
     const capitalLetter = word[i].toUpperCase();
     if (copyUserInput[currUserInputLetter] === capitalLetter) {
-      text.push(<span className={styles.highlighted}>{word[i]}</span>);
+      text.push(
+        <span key={`letter-${i}`} className={styles.highlighted}>
+          {word[i]}
+        </span>
+      );
       currUserInputLetter = (currUserInputLetter + 1) % copyUserInput.length;
     } else {
-      text.push(<span className={styles.transparent}>{word[i]}</span>);
+      text.push(
+        <span key={`letter-${i}`} className={styles.transparent}>
+          {word[i]}
+        </span>
+      );
     }
   }
 
