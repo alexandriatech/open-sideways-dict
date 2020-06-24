@@ -14,6 +14,10 @@ module.exports = {
       username: {
         type: Sequelize.STRING,
       },
+      role: {
+        type: Sequelize.STRING,
+        defaultValue: "default",
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
