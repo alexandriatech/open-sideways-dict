@@ -27,6 +27,7 @@ type User {
   token: String
   email: String!
   username: String!
+  role: String!
   createdAt: Date!
   updatedAt: Date!
   words: [Word!]!
