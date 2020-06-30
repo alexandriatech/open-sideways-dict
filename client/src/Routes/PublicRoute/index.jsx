@@ -1,5 +1,5 @@
 import React from "react";
-import PublicQueryExample from "components/PublicQueryExample";
+import PublicQueryExample from "components-app/PublicQueryExample";
 
 const PublicRoute = () => {
   return (

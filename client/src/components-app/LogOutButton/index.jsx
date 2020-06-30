@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { UserContext } from "components/UserContextProvider";
+import { UserContext } from "components-app/UserContextProvider";
 import { STORAGE_JWT } from "constants/index";
 import styles from "./styles.module.css";
 

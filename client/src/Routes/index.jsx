@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { UserContext } from "components/UserContextProvider";
-import AuthenticatedRoute from "components/AuthenticatedRoute";
+import { UserContext } from "components-app/UserContextProvider";
+import AuthenticatedRoute from "components-app/AuthenticatedRoute";
 import Home from "./Home";
 import Login from "./Login";
 import ProtectedRoute from "./ProtectedRoute";

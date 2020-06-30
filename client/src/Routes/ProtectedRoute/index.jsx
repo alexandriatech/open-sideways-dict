@@ -1,5 +1,5 @@
 import React from "react";
-import PrivateQueryExample from "components/PrivateQueryExample";
+import PrivateQueryExample from "components-app/PrivateQueryExample";
 
 const ProtectedRoute = () => {
   return (
