@@ -1,70 +1,69 @@
 import React, { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { UserContext } from "components/UserContextProvider";
-import AuthenticatedRoute from "components/AuthenticatedRoute";
-import Home from "./Home";
-import Login from "./Login";
-import ProtectedRoute from "./ProtectedRoute";
-import PublicRoute from "./PublicRoute";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { UserContext } from "components-app/UserContextProvider";
+// josue: might use later so leaving it here
+// import AuthenticatedRoute from "components-app/AuthenticatedRoute";
+// import Home from "./Home";
+// import Login from "./Login";
+// import ProtectedRoute from "./ProtectedRoute";
+// import PublicRoute from "./PublicRoute";
 import NoMatch from "./NoMatch";
 
-const FakeNav = () => {
-  return (
-    <div>
-      <h3>Example of graphql protected routes and login via google</h3>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/protectedroute">
-            Protected Route: a link that should not allow users view unless
-            logged in.
-          </Link>
-        </li>
-        <li>
-          <Link to="/publicroute">
-            Public Route: allows anyone to access and see the query.{" "}
-          </Link>
-        </li>
-        <li>
-          <Link to="/protectedquery">
-            Protected Query: a public link with protected query
-          </Link>
-        </li>
-        <li>
-          <Link to="/login">Login: google login to see all links</Link>
-        </li>
-      </ul>
-      <hr />
-    </div>
-  );
-};
+const ROUTES = (isAuthenticated) => [
+  {
+    exact: true,
+    path: "/",
+    children: "home",
+    title: "Home",
+  },
+  {
+    exact: true,
+    path: "/word/:id",
+    children: "word : id",
+    title: "Word Id",
+  },
+  {
+    exact: true,
+    path: "/tag/:tag",
+    children: "tag : tag",
+    title: "Tag",
+  },
+  {
+    exact: true,
+    path: "/share/:wordId",
+    children: "Share Id",
+    title: "Share",
+  },
+  {
+    exact: true,
+    path: "/user/:user",
+    children: "User defs",
+    title: "User",
+  },
+  {
+    exact: true,
+    path: "/about",
+    children: "about",
+    title: "About",
+  },
+  {
+    exact: true,
+    path: "/login",
+    children: "login",
+    title: "Login Page",
+  },
+];
 
 const Routes = () => {
   const { user } = useContext(UserContext);
+  const routes = ROUTES(true);
 
   return (
     <Router>
-      <FakeNav />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/protectedroute">
-          <AuthenticatedRoute redirectTo="/login" isAuthenticated={!!user}>
-            <ProtectedRoute />
-          </AuthenticatedRoute>
-        </Route>
-        <Route exact path="/protectedquery">
-          <ProtectedRoute />
-        </Route>
-        <Route exact path="/publicroute">
-          <PublicRoute />
-        </Route>
+        {routes.map((routeProps, i) => (
+          <Route {...routeProps} key={`route-${i}`} />
+        ))}
         <Route path="*">
           <NoMatch />
         </Route>

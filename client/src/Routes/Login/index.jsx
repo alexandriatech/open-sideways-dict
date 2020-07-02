@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import GoogleLoginButton from "components/GoogleLoginButton";
-import LogOutButton from "components/LogOutButton";
-import { UserContext } from "components/UserContextProvider";
+import GoogleLoginButton from "components-app/GoogleLoginButton";
+import LogOutButton from "components-app/LogOutButton";
+import { UserContext } from "components-app/UserContextProvider";
 
 const Login = () => {
   const { user } = useContext(UserContext);

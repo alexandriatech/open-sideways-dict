@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import GoogleLogin from "react-google-login";
 import gql from "graphql-tag";
 import { useMutation } from "@apollo/react-hooks";
-import { UserContext } from "components/UserContextProvider";
+import { UserContext } from "components-app/UserContextProvider";
 import { STORAGE_JWT } from "constants/index";
 import jwt_decode from "jwt-decode";
 
