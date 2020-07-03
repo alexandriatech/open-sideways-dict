@@ -3,10 +3,10 @@
 
 type Query {
   allWords: [Word!]!
-  getTag(id: Int!): Tag!
-  getUser(id: Int!): User!
-  getWord(id: Int!): Word!
-  getWordDef(id: Int!): WordData!
+  getTag(id: Int!): Tag
+  getUser(id: Int!): User
+  getWord(id: Int!): Word
+  getWordDef(id: Int!): WordData
 }
 
 # -------------
