@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "prefix:client": "yarn workspace client",
-    "prefix:server": "yarn workspace server",
+    "prefix:server": "PORT=4000; yarn workspace server",
     "start:client": "yarn prefix:client start",
     "start:server": "yarn prefix:server start-dev",
     "start": "yarn prefix:server start",
