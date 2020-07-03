@@ -4,6 +4,7 @@ import { UserContext } from "components-app/UserContextProvider";
 // josue: might use later so leaving it here
 // import AuthenticatedRoute from "components-app/AuthenticatedRoute";
 import Home from "./Home";
+import UserWords from "./UserWords";
 // import Login from "./Login";
 // import ProtectedRoute from "./ProtectedRoute";
 // import PublicRoute from "./PublicRoute";
@@ -36,8 +37,8 @@ const ROUTES = (isAuthenticated) => [
   },
   {
     exact: true,
-    path: "/user/:user",
-    children: "User defs",
+    path: "/user/:id",
+    children: <UserWords />,
     title: "User",
   },
   {
