@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { UserContext } from "components-app/UserContextProvider";
 // josue: might use later so leaving it here
 // import AuthenticatedRoute from "components-app/AuthenticatedRoute";
-// import Home from "./Home";
+import Home from "./Home";
 // import Login from "./Login";
 // import ProtectedRoute from "./ProtectedRoute";
 // import PublicRoute from "./PublicRoute";
@@ -13,7 +13,7 @@ const ROUTES = (isAuthenticated) => [
   {
     exact: true,
     path: "/",
-    children: "home",
+    children: <Home />,
     title: "Home",
   },
   {
@@ -61,8 +61,8 @@ const Routes = () => {
   return (
     <Router>
       <Switch>
-        {routes.map((routeProps, i) => (
-          <Route {...routeProps} key={`route-${i}`} />
+        {routes.map(({ ...routeProps }, i) => (
+          <Route {...routeProps} key={`route-${i}`}></Route>
         ))}
         <Route path="*">
           <NoMatch />
