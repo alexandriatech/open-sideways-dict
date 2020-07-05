@@ -2,7 +2,7 @@
 # Queries
 
 type Query {
-  allWords: [Word!]!
+  allWords(input: AllWordInput): [Word!]!
   getTag(id: Int!): Tag
   getUser(id: Int!): User
   getWord(id: Int!): Word
@@ -88,7 +88,24 @@ input AddWordDataTag {
   tag: String!
 }
 
+input AllWordInput {
+  asc: Boolean
+  isPublish: Boolean
+  sortBy: AllWordsSort
+}
+
 # -------------
 # Scalars
 
 scalar Date
+
+# -------------
+# Enums
+
+enum AllWordsSort {
+  createdAt
+  id
+  isPublish
+  updatedAt
+  word
+}
