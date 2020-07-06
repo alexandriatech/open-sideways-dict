@@ -1,9 +1,6 @@
 const { runIfAuthenticated } = require("../../utils");
 const { db } = require("../../../db");
-
-async function allWords(context) {
-  return await db.Word.findAll();
-}
+const { allWords } = require("./allWords");
 
 async function getTag(id, context) {
   return await db.Tag.findByPk(id);
@@ -22,7 +19,7 @@ async function getWordDef(id, context) {
 }
 
 const Query = {
-  allWords: (_, __, context) => allWords(context),
+  allWords: (_, { input }, context) => allWords(input, context),
   getTag: (_, { id }, context) => getTag(id, context),
   getUser: (_, { id }, context) => getUser(id, context),
   getWord: (_, { id }, context) => getWord(id, context),
