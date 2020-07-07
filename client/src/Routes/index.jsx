@@ -9,6 +9,7 @@ import UserWords from "./UserWords";
 // import ProtectedRoute from "./ProtectedRoute";
 // import PublicRoute from "./PublicRoute";
 import NoMatch from "./NoMatch";
+import Header from "components-shared/Header";
 
 const ROUTES = (isAuthenticated) => [
   {
@@ -61,6 +62,7 @@ const Routes = () => {
 
   return (
     <Router>
+      <Header />
       <Switch>
         {routes.map(({ ...routeProps }, i) => (
           <Route {...routeProps} key={`route-${i}`}></Route>
