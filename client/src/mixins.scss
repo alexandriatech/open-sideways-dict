@@ -1,0 +1,45 @@
+// mixins
+// bootstrap breakpoints
+$small-devices: 576px;
+$medium-devices: 768px;
+$large-devices: 992px;
+$extra-large-devices: 1200px;
+
+// Adds a min-width media query.
+@mixin min-width($pixels) {
+  @media (min-width: $pixels) {
+    @content;
+  }
+}
+
+// Adds a max-width media query
+@mixin max-width($pixels) {
+  @media (max-width: $pixels) {
+    @content;
+  }
+}
+
+// break points media query
+@mixin small-devices {
+  @include min-width($small-devices) {
+    @content;
+  }
+}
+
+@mixin medium-devices {
+  @include min-width($medium-devices) {
+    @content;
+  }
+}
+
+@mixin large-devices {
+  @include min-width($large-devices) {
+    @content;
+  }
+}
+
+@mixin extra-large-devices {
+  @include min-width($extra-large-devices) {
+    @content;
+  }
+}

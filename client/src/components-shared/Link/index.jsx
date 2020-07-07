@@ -40,7 +40,7 @@ const Link = ({
 };
 
 Link.propTypes = {
-  appearance: PropTypes.oneOf(["default", "alt", "none"]),
+  appearance: PropTypes.oneOf(["default", "alt", "none", "noline"]),
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   color: PropTypes.string,
