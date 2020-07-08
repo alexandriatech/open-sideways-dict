@@ -3,13 +3,15 @@ import { UserContext } from "components-app/UserContextProvider";
 import { STORAGE_JWT } from "constants/index";
 import styles from "./styles.module.css";
 
-const LogOutButton = ({ children }) => {
+const LogOutButton = ({ children, render }) => {
   const { setUser } = useContext(UserContext);
 
   function logout() {
     setUser(null);
     localStorage.removeItem(STORAGE_JWT);
   }
+
+  if (render) return React.createElement(render, { onClick: logout, children });
 
   return (
     <div onClick={logout}>

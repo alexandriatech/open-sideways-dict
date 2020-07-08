@@ -10,12 +10,16 @@ const AuthGoogle = gql`
   mutation AuthGoogle($accessToken: String!) {
     authGoogle(accessToken: $accessToken) {
       token
-      name
+      username
     }
   }
 `;
 
-const GoogleLoginButton = ({ onSuccessCallback, onFailureCallback }) => {
+const GoogleLoginButton = ({
+  onSuccessCallback,
+  onFailureCallback,
+  render,
+}) => {
   const { setUser } = useContext(UserContext);
   const [authGoogle] = useMutation(AuthGoogle, {
     onCompleted: (data) => {
@@ -25,20 +29,18 @@ const GoogleLoginButton = ({ onSuccessCallback, onFailureCallback }) => {
       onSuccessCallback && onSuccessCallback(data);
     },
     // TODO: should also handle errors for mutation
+    onError: (err) => console.log("login error: ", err),
   });
 
-  const onSuccessGoogle = (res) => {
+  const onSuccessGoogle = (res) =>
     authGoogle({ variables: { accessToken: res.accessToken } });
-  };
 
-  const onErrorGoogle = (res) => {
-    console.log(res);
-    onFailureCallback && onFailureCallback(res);
-  };
+  const onErrorGoogle = (res) => onFailureCallback && onFailureCallback(res);
 
   return (
     <GoogleLogin
-      clientId="520481995065-2kd38l4990787a6pnb1qvnhd0l5cr4g0.apps.googleusercontent.com"
+      clientId="1020239480532-fq5ufnvt7741e48lpoe36lgq3vmimr00.apps.googleusercontent.com"
+      render={render}
       buttonText="Login"
       onSuccess={onSuccessGoogle}
       onFailure={onErrorGoogle}

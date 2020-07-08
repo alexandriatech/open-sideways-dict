@@ -5,11 +5,11 @@ import { UserContext } from "components-app/UserContextProvider";
 // import AuthenticatedRoute from "components-app/AuthenticatedRoute";
 import Home from "./Home";
 import UserWords from "./UserWords";
-// import Login from "./Login";
+import Login from "./Login";
 // import ProtectedRoute from "./ProtectedRoute";
 // import PublicRoute from "./PublicRoute";
 import NoMatch from "./NoMatch";
-import Header from "components-shared/Header";
+import Navbar from "components-shared/Navbar";
 
 const ROUTES = (isAuthenticated) => [
   {
@@ -51,8 +51,8 @@ const ROUTES = (isAuthenticated) => [
   {
     exact: true,
     path: "/login",
-    children: "login",
-    title: "Login Page",
+    children: <Login />,
+    title: "Login",
   },
 ];
 
@@ -62,7 +62,7 @@ const Routes = () => {
 
   return (
     <Router>
-      <Header />
+      <Navbar />
       <Switch>
         {routes.map(({ ...routeProps }, i) => (
           <Route {...routeProps} key={`route-${i}`}></Route>
