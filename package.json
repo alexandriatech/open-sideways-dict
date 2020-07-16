@@ -6,9 +6,9 @@
   "main": "index.js",
   "scripts": {
     "prefix:client": "yarn workspace client",
-    "prefix:server": "PORT=4000; yarn workspace server",
+    "prefix:server": "yarn workspace server",
     "start:client": "yarn prefix:client start",
-    "start:server": "yarn prefix:server start-dev",
+    "start:server": "PORT=4000; yarn prefix:server start-dev",
     "start": "yarn prefix:server start",
     "heroku-postbuild": "yarn prefix:client build"
   },
