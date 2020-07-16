@@ -8,3 +8,20 @@
     }
   }
 }
+
+.entering {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.entered {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.exiting {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+.exited {
+  opacity: 0;
+  transition: opacity 200ms;
+}

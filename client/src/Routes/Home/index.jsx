@@ -1,6 +1,7 @@
 import React from "react";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
+import styles from "./styles.module.scss";
 
 const GET_ALL_WORDS = gql`
   {
@@ -12,7 +13,7 @@ const GET_ALL_WORDS = gql`
   }
 `;
 
-const Home = () => {
+const Home = ({ className, state, style }) => {
   const { loading, error, data } = useQuery(GET_ALL_WORDS);
   // TODO: handle loading
   if (loading) return "";
@@ -21,7 +22,7 @@ const Home = () => {
 
   console.log("data", data);
   return (
-    <div>
+    <div className={styles[state] + ` ${className}`} style={style}>
       {data.allWords.map(({ word }) => (
         <div key={word}>{word}</div>
       ))}

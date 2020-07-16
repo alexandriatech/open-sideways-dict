@@ -4,7 +4,7 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 import Link from "components-shared/Link";
 
-const Header = ({ className, links, title }) => {
+const Navbar = ({ className, links, title }) => {
   const _className = classNames(styles.header, className);
   const _color = "black";
   const _hoverColor = "rgba(0, 0, 0, .6)";
@@ -12,7 +12,7 @@ const Header = ({ className, links, title }) => {
   return (
     <>
       <div className={styles.headerSpace}></div>
-      <header className={_className}>
+      <nav className={_className}>
         <Link
           appearance="noline"
           className={styles.title}
@@ -33,18 +33,18 @@ const Header = ({ className, links, title }) => {
             />
           ))}
         </div>
-      </header>
+      </nav>
     </>
   );
 };
 
-Header.propTypes = {
+Navbar.propTypes = {
   className: PropTypes.string,
   links: PropTypes.array,
   title: PropTypes.string,
 };
 
-Header.defaultProps = {
+Navbar.defaultProps = {
   links: [
     {
       children: "Login",
@@ -58,4 +58,4 @@ Header.defaultProps = {
   title: "Open Sideway's Dictionary",
 };
 
-export default Header;
+export default Navbar;
