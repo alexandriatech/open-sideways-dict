@@ -2,7 +2,6 @@
 
 .header {
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.7);
   display: flex;
   justify-content: space-between;
   left: 0;
@@ -19,6 +18,14 @@
   .link {
     margin-left: 15px;
   }
+}
+
+:global(.default) .header {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+:global(.alt) .header {
+  background-color: rgba(41, 98, 255, 0.7);
 }
 
 .headerSpace {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 import GoogleLoginButton from "components-app/GoogleLoginButton";
@@ -23,7 +23,7 @@ const Login = ({ state, className }) => {
   return (
     <div className={_className}>
       <Heading>{HEADING_TEXT}</Heading>
-      <p>{SUBHEADING_TEXT}</p>
+      <p className={styles.subHeading}>{SUBHEADING_TEXT}</p>
       <GoogleLoginButton
         render={(props) => <Button {...props}>{SIGNIN_TEXT}</Button>}
       />

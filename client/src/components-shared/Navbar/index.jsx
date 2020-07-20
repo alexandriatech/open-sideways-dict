@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
+import { ThemeContext } from "components-shared/ThemeContextProvider";
 import Link from "components-shared/Link";
 
 const Navbar = ({ className, links, title }) => {
+  const { theme } = useContext(ThemeContext);
   const _className = classNames(styles.header, className);
-  const _color = "black";
-  const _hoverColor = "rgba(0, 0, 0, .6)";
+  const _color = theme === "default" ? "black" : "white";
+  const _hoverColor =
+    theme === "default" ? "rgba(0, 0, 0, .6)" : "rgba(255, 255, 255, .6)";
 
   return (
     <>
       <div className={styles.headerSpace}></div>
-      <nav className={_className}>
+      <nav className={_className} key={theme}>
         <Link
           appearance="noline"
           className={styles.title}
