@@ -1,7 +1,19 @@
+.loginPage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 300px;
+
+  .subHeading {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+}
+
 :global(.page-enter) .loginPage {
   opacity: 0;
   transform: scale(1.1);
-  /* position: absolute; */
 }
 
 :global(.page-enter-active) .loginPage {

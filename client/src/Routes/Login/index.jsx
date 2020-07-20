@@ -15,15 +15,15 @@ const Login = ({ state, className }) => {
   const { user } = useContext(UserContext);
   const _className = classNames(className, styles.loginPage, styles[state]);
 
-  console.log("login state", state);
   if (!!user)
     return (
       <LogOutButton render={(props) => <Button {...props}>Logout</Button>} />
     );
+
   return (
     <div className={_className}>
       <Heading>{HEADING_TEXT}</Heading>
-      <p>{SUBHEADING_TEXT}</p>
+      <p className={styles.subHeading}>{SUBHEADING_TEXT}</p>
       <GoogleLoginButton
         render={(props) => <Button {...props}>{SIGNIN_TEXT}</Button>}
       />
