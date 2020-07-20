@@ -1,0 +1,16 @@
+.theme-wrapper {
+  min-height: 100vh;
+  transition: 250ms;
+
+  // defaults for themes
+  // we should try to set defaults to some tags
+  // and if it's different for each component then just simply override them
+  &.default {
+    color: black;
+  }
+
+  &.alt {
+    background-color: var(--our-blue);
+    color: var(--white);
+  }
+}

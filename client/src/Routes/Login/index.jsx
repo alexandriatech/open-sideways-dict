@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 import GoogleLoginButton from "components-app/GoogleLoginButton";
@@ -15,11 +15,11 @@ const Login = ({ state, className }) => {
   const { user } = useContext(UserContext);
   const _className = classNames(className, styles.loginPage, styles[state]);
 
-  console.log("login state", state);
   if (!!user)
     return (
       <LogOutButton render={(props) => <Button {...props}>Logout</Button>} />
     );
+
   return (
     <div className={_className}>
       <Heading>{HEADING_TEXT}</Heading>

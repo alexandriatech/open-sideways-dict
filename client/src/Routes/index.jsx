@@ -1,7 +1,8 @@
 import React, { useContext, useRef } from "react";
-import { Switch, Route, useLocation } from "react-router-dom";
+import { Switch, Route, useLocation, matchPath } from "react-router-dom";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { UserContext } from "components-app/UserContextProvider";
+import { ThemeContext } from "components-shared/ThemeContextProvider";
 // josue: might use later so leaving it here
 // import AuthenticatedRoute from "components-app/AuthenticatedRoute";
 import Home from "./Home";
@@ -11,6 +12,7 @@ import Login from "./Login";
 // import PublicRoute from "./PublicRoute";
 import NoMatch from "./NoMatch";
 import Navbar from "components-shared/Navbar";
+import { useEffect } from "react";
 
 const ROUTES = (isAuthenticated) => [
   {
@@ -63,11 +65,23 @@ const ROUTES = (isAuthenticated) => [
   },
 ];
 
+// a list of all routes that use alt themes
+const altThemeRoutes = ["/login"];
+
 const Routes = () => {
   const { user } = useContext(UserContext);
+  const { setTheme } = useContext(ThemeContext);
   const location = useLocation();
   const routes = ROUTES(true);
   const nodeRef = useRef(null);
+
+  useEffect(() => {
+    const isMatchAltTheme = matchPath(location.pathname, {
+      path: altThemeRoutes,
+    });
+    if (isMatchAltTheme) setTheme("alt");
+    else setTheme("default");
+  }, [location]);
 
   return (
     <>
@@ -75,7 +89,9 @@ const Routes = () => {
       <SwitchTransition>
         {/* josue: page transitions should only be scoped for each page 
         because we are using css modules. although the transitions are similar the components may not be
-        (plus css moduldes) */}
+        (plus css moduldes).
+        using this everything page has a timeout so that means every page must have a transition
+        */}
         <CSSTransition
           key={location.key}
           timeout={300}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { STORAGE_JWT } from "constants/index";
 import jwt_decode from "jwt-decode";
 
@@ -24,6 +25,10 @@ const UserContextProvider = ({ children }) => {
       {children}
     </UserContext.Provider>
   );
+};
+
+UserContextProvider.propTypes = {
+  children: PropTypes.node,
 };
 
 export default UserContextProvider;

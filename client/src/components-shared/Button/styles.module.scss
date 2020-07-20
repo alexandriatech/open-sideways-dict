@@ -1,6 +1,3 @@
-$button-blue: rgb(41, 98, 255);
-$button-white: white;
-
 .button {
   -webkit-appearance: none;
   border-radius: 30px;
@@ -14,22 +11,22 @@ $button-white: white;
 }
 
 .default {
-  background-color: $button-white;
-  border-color: $button-blue;
-  color: $button-blue;
+  background-color: var(--white);
+  border-color: var(--white);
+  color: var(--our-blue);
   &:hover {
-    background-color: $button-blue;
-    color: $button-white;
+    background-color: var(--our-blue);
+    color: var(--white);
   }
 }
 
 .alt {
-  background-color: $button-blue;
-  border-color: $button-white;
-  color: $button-white;
+  background-color: var(--our-blue);
+  border-color: var(--white);
+  color: var(--white);
   &:hover {
-    background-color: $button-white;
-    color: $button-blue;
+    background-color: var(--white);
+    color: var(--our-blue);
   }
 }
 
