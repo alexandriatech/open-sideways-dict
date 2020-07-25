@@ -19,6 +19,15 @@ const words = [
     word: "moose",
     isPublish: true,
   },
+  {
+    word: "chupacabra",
+    isPublish: true,
+  },
+
+  {
+    word: "chupacabrachupacabra",
+    isPublish: true,
+  },
 ];
 
 module.exports = {
