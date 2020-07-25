@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState, useRef } from "react";
+import classNames from "classnames";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
 import styles from "./styles.module.scss";
+import WordLink from "components-shared/WordLink";
+import TextInput from "components-shared/TextInput";
+import Icon from "components-shared/Icon";
+import SearchIcon from "assets/search.svg";
 
 const GET_ALL_WORDS = gql`
   {
@@ -13,19 +18,68 @@ const GET_ALL_WORDS = gql`
   }
 `;
 
-const Home = ({ className, state, style }) => {
+const Home = ({ className }) => {
+  const [wordSearch, setWordSearchValue] = useState("");
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const textInputRef = useRef(null);
   const { loading, error, data } = useQuery(GET_ALL_WORDS);
+  const _className = classNames(className, styles.homePage);
   // TODO: handle loading
   if (loading) return "";
   // TODO: handle errors
   if (error) return `Error! ${error.message}`;
 
-  console.log("data", data);
+  const toggleSearch = (nextState) => {
+    const _nextState = nextState || wordSearch.length;
+    setIsSearchActive(_nextState);
+    if (_nextState) {
+      textInputRef.current.blur();
+      textInputRef.current.focus();
+    }
+  };
+
   return (
-    <div className={styles[state] + ` ${className}`} style={style}>
-      {data.allWords.map(({ word }) => (
-        <div key={word}>{word}</div>
-      ))}
+    <div className={_className}>
+      <div className={styles.inputWrapper}>
+        <TextInput
+          autoCorrect="off"
+          ref={textInputRef}
+          value={wordSearch}
+          className={classNames(
+            { [styles.hide]: !isSearchActive },
+            styles.input,
+            styles.inputChild
+          )}
+          onChange={(e) => setWordSearchValue(e.target.value)}
+          onBlur={() => toggleSearch(false)}
+        />
+        <Icon
+          className={classNames(
+            { [styles.hide]: isSearchActive },
+            styles.searchIcon,
+            styles.inputChild
+          )}
+          src={SearchIcon}
+          width={"56px"}
+          onClick={() => toggleSearch(!isSearchActive)}
+        />
+      </div>
+
+      <div className={styles.wordList}>
+        {data.allWords.map(({ id, word }) => (
+          <WordLink
+            className={styles.wordLink}
+            hideIfNoMatch
+            key={word}
+            link={`/word/${id}`}
+            userInput={wordSearch}
+            word={word}
+          />
+        ))}
+      </div>
+      <div className={styles.noWordFound} onClick={() => toggleSearch(true)}>
+        No Word found with search: {wordSearch}
+      </div>
     </div>
   );
 };
