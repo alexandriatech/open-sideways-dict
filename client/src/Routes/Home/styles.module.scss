@@ -9,19 +9,83 @@
   }
 }
 
-.entering {
-  opacity: 1;
-  transition: opacity 200ms;
+.homePage {
+  align-items: center;
+  color: var(--our-blue);
+  display: flex;
+  flex-direction: column;
+  font-size: 5rem;
+  padding: 30px 10px;
+  text-align: center;
+  width: 100%;
+
+  .inputWrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .input {
+    color: var(--our-blue);
+    font-size: 56px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .searchIcon {
+    cursor: pointer;
+    position: absolute;
+  }
+
+  .inputChild {
+    transition: 200ms;
+  }
+
+  .hide {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .noWordFound {
+    display: none;
+    font-size: 3rem;
+  }
+
+  .wordList:empty + .noWordFound {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
 }
-.entered {
-  opacity: 1;
-  transition: opacity 200ms;
+
+.wordLink {
+  color: var(--our-blue);
+  display: block;
+
+  &:visited {
+    color: var(--our-blue);
+  }
 }
-.exiting {
+
+:global(.page-enter) .homePage {
   opacity: 0;
-  transition: opacity 200ms;
+  transform: scale(1.1);
 }
-.exited {
+
+:global(.page-enter-active) .homePage {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+:global(.page-exit) .homePage {
+  opacity: 1;
+  transform: scale(1);
+}
+
+:global(.page-exit-active) .homePage {
   opacity: 0;
-  transition: opacity 200ms;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }
