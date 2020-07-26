@@ -3,17 +3,22 @@ module.exports = (sequelize, DataTypes) => {
   const Word_data = sequelize.define(
     "Word_data",
     {
-      word_id: {
+      id: { type: DataTypes.INTEGER, primaryKey: true },
+      word_id: DataTypes.INTEGER,
+      user_id: DataTypes.INTEGER,
+      definition: DataTypes.STRING,
+      votes: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: "User",
-          key: "id",
+        async get() {
+          const _votes = await this.getUserVotes();
+          let votesValue = 0;
+          _votes.forEach((e) => (votesValue += e.value));
+          return votesValue;
+        },
+        set(_) {
+          throw new Error("Do not try to set votes!");
         },
       },
-      user_id: DataTypes.INTEGER,
-      upvotes: DataTypes.INTEGER,
-      definition: DataTypes.STRING,
     },
     {}
   );
@@ -24,6 +29,14 @@ module.exports = (sequelize, DataTypes) => {
       through: "Word_tag",
       foreignKey: "word_data_id",
       as: "Tag",
+    });
+    Word_data.hasMany(models.User_Votes, {
+      as: "UserVotes",
+      foreignKey: "word_data_id",
+    });
+    Word_data.belongsToMany(models.User, {
+      through: "User_Votes",
+      foreignKey: "word_data_id",
     });
   };
   return Word_data;

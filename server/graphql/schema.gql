@@ -48,7 +48,7 @@ type WordData {
   id: Int!
   word_id: Int!
   user_id: Int!
-  upvotes: Int!
+  votes: Int!
   definition: String!
   createdAt: Date!
   updatedAt: Date!

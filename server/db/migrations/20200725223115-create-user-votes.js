@@ -1,23 +1,20 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Word_data", {
+    return queryInterface.createTable("User_Votes", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      word_id: {
-        type: Sequelize.INTEGER,
-      },
       user_id: {
         type: Sequelize.INTEGER,
       },
-      definition: {
-        type: Sequelize.STRING,
+      word_data_id: {
+        type: Sequelize.INTEGER,
       },
-      votes: {
+      value: {
         type: Sequelize.INTEGER,
       },
       createdAt: {
@@ -33,6 +30,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Word_data");
+    return queryInterface.dropTable("User_Votes");
   },
 };
