@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Word = sequelize.define(
     "Word",
     {
+      id: { type: DataTypes.INTEGER, primaryKey: true },
       word: DataTypes.STRING,
       isPublish: DataTypes.BOOLEAN,
     },

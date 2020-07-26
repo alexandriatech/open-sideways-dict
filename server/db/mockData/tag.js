@@ -17,6 +17,9 @@ const tags = [
   {
     tag: "food",
   },
+  {
+    tag: "doggie",
+  },
 ];
 
 module.exports = {
