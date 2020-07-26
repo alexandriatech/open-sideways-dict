@@ -32,6 +32,7 @@ type User {
   updatedAt: Date!
   words: [Word!]!
   wordDefs: [WordData!]!
+  wordsDefsVotes: [Votes!]!
 }
 
 type Word {
@@ -63,6 +64,14 @@ type Tag {
   createdAt: Date!
   updatedAt: Date!
   wordsDefs: [WordData!]!
+}
+
+type Votes {
+  user_id: Int!
+  word_data_id: Int!
+  value: Int!
+  wordData: WordData!
+  user: User!
 }
 
 # -------------

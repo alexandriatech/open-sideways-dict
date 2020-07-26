@@ -16,10 +16,14 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "user_id",
       as: "Word",
     });
+    User.hasMany(models.User_Votes, {
+      as: "WordsVotes",
+      foreignKey: "user_id",
+    });
     User.belongsToMany(models.Word_data, {
       through: "User_Votes",
       foreignKey: "user_id",
-      as: "WordsVoted",
+      as: "WordsVotedData",
     });
   };
   return User;

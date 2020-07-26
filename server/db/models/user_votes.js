@@ -11,8 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
   User_Votes.associate = function (models) {
-    User_Votes.belongsTo(models.User, { foreignKey: "user_id" });
-    User_Votes.belongsTo(models.Word_data, { foreignKey: "word_data_id" });
+    User_Votes.belongsTo(models.User, { foreignKey: "user_id", as: "User" });
+    User_Votes.belongsTo(models.Word_data, {
+      foreignKey: "word_data_id",
+      as: "wordDef",
+    });
   };
   return User_Votes;
 };
