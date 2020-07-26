@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "Tag",
     {
       id: { type: DataTypes.INTEGER, primaryKey: true },
-      tag: DataTypes.STRING,
+      tag: { type: DataTypes.STRING, unique: true },
     },
     {}
   );
