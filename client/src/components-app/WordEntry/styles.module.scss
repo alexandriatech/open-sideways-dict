@@ -1,0 +1,47 @@
+.user,
+.tags,
+.word,
+.definition {
+  display: inline-block;
+}
+
+.user {
+  margin-right: 30px;
+}
+
+.tag {
+  margin-right: 7px;
+  &:last-child {
+    margin-right: 30px;
+  }
+}
+
+.votes {
+  align-items: center;
+  display: flex;
+  font-size: 1.05rem;
+  justify-content: center;
+}
+
+.icon {
+  margin: 0 5px;
+  opacity: 0.6;
+  transition: 200ms;
+  cursor: not-allowed;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.links {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.definitionWrapper {
+  margin-bottom: 5px;
+  .wordLink,
+  .hyphen {
+    margin-right: 5px;
+  }
+}

@@ -3,8 +3,11 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "./styles.module.scss";
 
-const Icon = ({ className, height, onClick, src, width }) => {
-  const _className = classNames(className, styles.icon);
+const Icon = ({ border, className, height, onClick, round, src, width }) => {
+  const _className = classNames(className, styles.icon, {
+    [styles.border]: border,
+    [styles.round]: round,
+  });
   const _style = {
     ...(src ? { backgroundImage: `url(${src})` } : {}),
     height: height || width,
@@ -15,11 +18,13 @@ const Icon = ({ className, height, onClick, src, width }) => {
 };
 
 Icon.propTypes = {
+  border: PropTypes.bool,
   className: PropTypes.string,
   //   TODO: josue - add support for numbers (px)
   //   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.string,
   onClick: PropTypes.func,
+  round: PropTypes.bool,
   src: PropTypes.string,
   //   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   width: PropTypes.string,

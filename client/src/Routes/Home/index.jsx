@@ -11,7 +11,6 @@ import SearchIcon from "assets/search.svg";
 const GET_ALL_WORDS = gql`
   {
     allWords {
-      id
       isPublish
       word
     }
@@ -24,6 +23,7 @@ const Home = ({ className }) => {
   const textInputRef = useRef(null);
   const { loading, error, data } = useQuery(GET_ALL_WORDS);
   const _className = classNames(className, styles.homePage);
+
   // TODO: handle loading
   if (loading) return "";
   // TODO: handle errors
@@ -66,12 +66,12 @@ const Home = ({ className }) => {
       </div>
 
       <div className={styles.wordList}>
-        {data.allWords.map(({ id, word }) => (
+        {data.allWords.map(({ word }) => (
           <WordLink
             className={styles.wordLink}
             hideIfNoMatch
             key={word}
-            link={`/word/${id}`}
+            link={`/word/${word}`}
             userInput={wordSearch}
             word={word}
           />
