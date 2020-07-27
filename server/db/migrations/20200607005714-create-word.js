@@ -10,6 +10,7 @@ module.exports = {
       },
       word: {
         type: Sequelize.STRING,
+        unique: true,
       },
       isPublish: {
         type: Sequelize.BOOLEAN,

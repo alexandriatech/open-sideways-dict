@@ -3,9 +3,11 @@
 
 type Query {
   allWords(input: AllWordInput): [Word!]!
-  getTag(id: Int!): Tag
+  getTagByTag(tag: String!): Tag
+  getTagByTagId(id: Int!): Tag
   getUser(id: Int!): User
-  getWord(id: Int!): Word
+  getWordById(id: Int!): Word
+  getWordByWord(word: String!): Word
   getWordDef(id: Int!): WordData
 }
 

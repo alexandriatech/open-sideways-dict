@@ -8,6 +8,7 @@ import { ThemeContext } from "components-shared/ThemeContextProvider";
 import Home from "./Home";
 import UserWords from "./UserWords";
 import Login from "./Login";
+import Word from "./Word";
 // import ProtectedRoute from "./ProtectedRoute";
 // import PublicRoute from "./PublicRoute";
 import NoMatch from "./NoMatch";
@@ -23,8 +24,8 @@ const ROUTES = (isAuthenticated) => [
   },
   {
     exact: true,
-    path: "/word/:id",
-    Component: () => <p>word : id</p>,
+    path: "/word/:word",
+    Component: Word,
     title: "Word Id",
   },
   {

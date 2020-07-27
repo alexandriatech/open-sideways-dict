@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "Word",
     {
       id: { type: DataTypes.INTEGER, primaryKey: true },
-      word: DataTypes.STRING,
+      word: { type: DataTypes.STRING, unique: true },
       isPublish: DataTypes.BOOLEAN,
     },
     {}
