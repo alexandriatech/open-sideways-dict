@@ -5,8 +5,6 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 
 function WordLink({ className, hideIfNoMatch, link, userInput, word }) {
-  let currUserInputLetter = 0;
-
   const [text, hasMatch] = useMemo(() => {
     let matches = 0;
     const copyUserInput = userInput.toUpperCase();
@@ -16,6 +14,7 @@ function WordLink({ className, hideIfNoMatch, link, userInput, word }) {
 
     // first we try to match letters that are consecutive
     const consecutiveSearch = wordCaps.indexOf(copyUserInput);
+    let currUserInputLetter = 0;
     if (consecutiveSearch !== -1) {
       matches++;
       const endOfSearch = consecutiveSearch + copyUserInput.length;

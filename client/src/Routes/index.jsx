@@ -83,7 +83,7 @@ const Routes = () => {
     });
     if (isMatchAltTheme) setTheme("alt");
     else setTheme("default");
-  }, [location]);
+  }, [location, setTheme]);
 
   return (
     <>

@@ -18,8 +18,8 @@ const WordList = ({ className, headingText, noWordsText, words }) => {
             id={id}
             key={`word-${i}`}
             tags={tags}
-            userId={user.id}
-            username={user.username}
+            userId={user ? user.id : null}
+            username={user ? user.username : null}
             votes={votes}
             word={word}
           />
