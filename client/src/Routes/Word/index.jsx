@@ -1,11 +1,9 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import classNames from "classnames";
 import gql from "graphql-tag";
 import { useQuery } from "@apollo/react-hooks";
 import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
-import Heading from "components-shared/Heading";
-import WordEntry from "components-app/WordEntry";
 import WordList from "components-app/WordList";
 
 const GET_WORD_DATA = gql`
@@ -30,11 +28,12 @@ const GET_WORD_DATA = gql`
   }
 `;
 
-const Word = () => {
+const Word = ({ className }) => {
   const { word } = useParams();
   const { loading, error, data } = useQuery(GET_WORD_DATA, {
     variables: { word },
   });
+  const _className = classNames(className, styles.wordPage);
 
   //   TODO: implement
   if (loading) return null;
@@ -49,7 +48,7 @@ const Word = () => {
   else wordList = getWordByWord.wordData;
 
   return (
-    <div className={styles.wordPage}>
+    <div className={_className}>
       <WordList headingText={word} noWordsText={noWordsText} words={wordList} />
     </div>
   );

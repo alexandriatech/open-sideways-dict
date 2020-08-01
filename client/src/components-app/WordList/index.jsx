@@ -11,7 +11,7 @@ const WordList = ({ className, headingText, noWordsText, words }) => {
     <div className={_className}>
       <Heading>{headingText}</Heading>
       {noWordsText ||
-        words.map(({ definition, id, tags, user, votes }, i) => (
+        words.map(({ definition, id, tags, user, votes, word }, i) => (
           <WordEntry
             className={styles.wordEntry}
             definition={definition}
@@ -21,6 +21,7 @@ const WordList = ({ className, headingText, noWordsText, words }) => {
             userId={user.id}
             username={user.username}
             votes={votes}
+            word={word}
           />
         ))}
     </div>
@@ -33,6 +34,5 @@ WordList.propTypes = {
   noWordsText: PropTypes.string,
   words: PropTypes.arrayOf(PropTypes.shape({ ...WordEntry.propTypes })),
 };
-console.log("wordllist", WordList.propTypes);
 
 export default WordList;

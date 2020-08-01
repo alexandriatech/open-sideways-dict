@@ -9,6 +9,7 @@ import Home from "./Home";
 import UserWords from "./UserWords";
 import Login from "./Login";
 import Word from "./Word";
+import Tag from "./Tag";
 // import ProtectedRoute from "./ProtectedRoute";
 // import PublicRoute from "./PublicRoute";
 import NoMatch from "./NoMatch";
@@ -31,7 +32,7 @@ const ROUTES = (isAuthenticated) => [
   {
     exact: true,
     path: "/tag/:tag",
-    Component: () => <p>tag : tag</p>,
+    Component: Tag,
     title: "Tag",
   },
   {
