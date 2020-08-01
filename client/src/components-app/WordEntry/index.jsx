@@ -19,6 +19,10 @@ const WordEntry = ({
 }) => {
   const _className = classNames(className, styles.wordEntry);
 
+  if (word) {
+    word = typeof word === "string" ? word : word.word;
+  }
+
   return (
     <div className={_className}>
       <div className={styles.definitionWrapper}>
@@ -93,7 +97,10 @@ WordEntry.propTypes = {
   userId: PropTypes.number,
   username: PropTypes.string,
   votes: PropTypes.number,
-  word: PropTypes.string,
+  word: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({ word: PropTypes.string }),
+  ]),
 };
 
 export default WordEntry;
