@@ -10,6 +10,7 @@ import UserWords from "./UserWords";
 import Login from "./Login";
 import Word from "./Word";
 import Tag from "./Tag";
+import Share from "./Share";
 // import ProtectedRoute from "./ProtectedRoute";
 // import PublicRoute from "./PublicRoute";
 import NoMatch from "./NoMatch";
@@ -37,8 +38,8 @@ const ROUTES = (isAuthenticated) => [
   },
   {
     exact: true,
-    path: "/share/:wordId",
-    Component: () => <p>Share Id</p>,
+    path: "/share/:id",
+    Component: Share,
     title: "Share",
   },
   {
@@ -68,7 +69,7 @@ const ROUTES = (isAuthenticated) => [
 ];
 
 // a list of all routes that use alt themes
-const altThemeRoutes = ["/login"];
+const altThemeRoutes = ["/login", "/share/:id"];
 
 const Routes = () => {
   const { user } = useContext(UserContext);
@@ -95,7 +96,7 @@ const Routes = () => {
         using this everything page has a timeout so that means every page must have a transition
         */}
         <CSSTransition
-          key={location.key}
+          key={location.pathname}
           timeout={300}
           classNames="page"
           nodeRef={nodeRef}
