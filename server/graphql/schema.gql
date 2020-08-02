@@ -18,7 +18,7 @@ type Mutation {
   authGoogle(accessToken: String!): User!
   updateUser(user: UpdateUserData!): User!
   addWordDef(wordDefData: AddWordData!): WordData!
-  addWord(wordData: AddWordDef!): Word!
+  addWord(word: String!): Word!
 }
 
 # -------------

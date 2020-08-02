@@ -6,8 +6,9 @@ function isAuthenticated(user) {
 }
 
 // wrapper function to run function only if context has authentication
-function runIfAuthenticated(context, callback) {
-  if (context[IS_AUTHENTICATED_CONTEXT]) return callback();
+function runIfAuthenticated(parent, args, context, info, resolver) {
+  if (context[IS_AUTHENTICATED_CONTEXT])
+    return resolver(parent, args, context, info);
   else throw new AuthenticationError("Unauthorized");
 }
 
