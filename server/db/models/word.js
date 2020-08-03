@@ -3,9 +3,9 @@ module.exports = (sequelize, DataTypes) => {
   const Word = sequelize.define(
     "Word",
     {
-      id: { type: DataTypes.INTEGER, primaryKey: true },
+      id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
       word: { type: DataTypes.STRING, unique: true },
-      isPublish: DataTypes.BOOLEAN,
+      isPublish: { defaultValue: false, type: DataTypes.BOOLEAN },
     },
     {}
   );

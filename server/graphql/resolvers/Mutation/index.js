@@ -1,11 +1,14 @@
+const { runIfAuthenticated } = require("../../utils");
 const { addWord } = require("./addWord");
 const { addWordDef } = require("./addWordDef");
 const { authGoogle } = require("./authGoogle");
 const { updateUser } = require("./updateUser");
 
 const Mutation = {
-  addWord: addWord,
-  addWordDef: addWordDef,
+  addWord: (parent, args, context, info) =>
+    runIfAuthenticated(parent, args, context, info, addWord),
+  addWordDef: (parent, args, context, info) =>
+    runIfAuthenticated(parent, args, context, info, addWordDef),
   authGoogle: authGoogle,
   updateUser: updateUser,
 };

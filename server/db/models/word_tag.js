@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Word_tag = sequelize.define(
     "Word_tag",
     {
-      id: { type: DataTypes.INTEGER, primaryKey: true },
+      id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
       word_data_id: DataTypes.INTEGER,
       tag_id: DataTypes.INTEGER,
     },
