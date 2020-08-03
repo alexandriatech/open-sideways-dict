@@ -17,7 +17,7 @@ type Query {
 type Mutation {
   authGoogle(accessToken: String!): User!
   updateUser(user: UpdateUserData!): User!
-  addWordDef(wordDefData: AddWordData!): WordData!
+  addWordDef(wordDef: AddWordInput!): WordData!
   addWord(word: String!): Word!
 }
 
@@ -84,7 +84,7 @@ input UpdateUserData {
   username: String
 }
 
-input AddWordDef {
+input AddWordInput {
   word_id: Int!
   definition: String!
 }

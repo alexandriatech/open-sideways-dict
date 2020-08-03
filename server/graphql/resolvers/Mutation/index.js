@@ -7,7 +7,8 @@ const { updateUser } = require("./updateUser");
 const Mutation = {
   addWord: (parent, args, context, info) =>
     runIfAuthenticated(parent, args, context, info, addWord),
-  addWordDef: addWordDef,
+  addWordDef: (parent, args, context, info) =>
+    runIfAuthenticated(parent, args, context, info, addWordDef),
   authGoogle: authGoogle,
   updateUser: updateUser,
 };

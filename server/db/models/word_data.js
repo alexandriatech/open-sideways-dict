@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Word_data = sequelize.define(
     "Word_data",
     {
-      id: { type: DataTypes.INTEGER, primaryKey: true },
+      id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
       word_id: DataTypes.INTEGER,
       user_id: DataTypes.INTEGER,
       definition: DataTypes.STRING,

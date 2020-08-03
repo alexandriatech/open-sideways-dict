@@ -10,6 +10,7 @@ const authGoogle = async (_, { accessToken }, { req, res }) => {
   try {
     const { data, info } = await authenticateGoogle(req, res);
     if (data) {
+      // TODO: this should be replace with db values
       const email = data.profile.emails[0].value;
       const username = data.profile.displayName;
       // try to find user by email
@@ -24,9 +25,13 @@ const authGoogle = async (_, { accessToken }, { req, res }) => {
         userDB = createdUser[0];
       }
       // finally add a webtoken to let a user signin
-      userDB.token = jwt.sign({ username, email }, process.env.JWT_SECRET, {
-        expiresIn: "1d",
-      });
+      userDB.token = jwt.sign(
+        { username, email, id: userDB.id },
+        process.env.JWT_SECRET,
+        {
+          expiresIn: "1d",
+        }
+      );
       return userDB;
     }
     if (info) {
