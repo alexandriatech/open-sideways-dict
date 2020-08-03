@@ -87,16 +87,7 @@ input UpdateUserData {
 input AddWordInput {
   word_id: Int!
   definition: String!
-}
-
-input AddWordData {
-  word: String!
-  tags: [AddWordDataTag!]
-  definition: String!
-}
-
-input AddWordDataTag {
-  tag: String!
+  tags: [String!]
 }
 
 input AllWordInput {
