@@ -5,12 +5,13 @@ import { UserContext } from "components-app/UserContextProvider";
 import { ThemeContext } from "components-shared/ThemeContextProvider";
 // josue: might use later so leaving it here
 // import AuthenticatedRoute from "components-app/AuthenticatedRoute";
+import About from "./About";
 import Home from "./Home";
-import UserWords from "./UserWords";
 import Login from "./Login";
-import Word from "./Word";
-import Tag from "./Tag";
 import Share from "./Share";
+import Tag from "./Tag";
+import UserWords from "./UserWords";
+import Word from "./Word";
 // import ProtectedRoute from "./ProtectedRoute";
 // import PublicRoute from "./PublicRoute";
 import NoMatch from "./NoMatch";
@@ -51,7 +52,7 @@ const ROUTES = (isAuthenticated) => [
   {
     exact: true,
     path: "/about",
-    Component: () => <p>about</p>,
+    Component: About,
     title: "About",
   },
   {
@@ -69,7 +70,7 @@ const ROUTES = (isAuthenticated) => [
 ];
 
 // a list of all routes that use alt themes
-const altThemeRoutes = ["/login", "/share/:id"];
+const altThemeRoutes = ["/login", "/share/:id", "/about"];
 
 const Routes = () => {
   const { user } = useContext(UserContext);
