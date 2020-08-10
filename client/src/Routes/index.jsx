@@ -69,6 +69,27 @@ const ROUTES = (isAuthenticated) => [
   },
 ];
 
+// dynamic links for when a user is logged in, and their role
+const NAV_LINKS = (role) => [
+  {
+    children: role ? "Logout" : "Login",
+    href: "/login",
+  },
+  role === "admin"
+    ? {
+        children: "Admin",
+        href: "/admin",
+      }
+    : {
+        children: "",
+        href: "#",
+      },
+  {
+    children: "About",
+    href: "/about",
+  },
+];
+
 // a list of all routes that use alt themes
 const altThemeRoutes = ["/login", "/share/:id", "/about"];
 
@@ -89,7 +110,7 @@ const Routes = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar links={NAV_LINKS(user ? user.role : null)} />
       <SwitchTransition>
         {/* josue: page transitions should only be scoped for each page 
         because we are using css modules. although the transitions are similar the components may not be

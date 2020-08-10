@@ -26,7 +26,7 @@ const authGoogle = async (_, { accessToken }, { req, res }) => {
       }
       // finally add a webtoken to let a user signin
       userDB.token = jwt.sign(
-        { username, email, id: userDB.id },
+        { username, email, id: userDB.id, role: userDB.role },
         process.env.JWT_SECRET,
         {
           expiresIn: "1d",
