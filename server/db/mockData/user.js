@@ -6,6 +6,7 @@ const users = [
   {
     username: "Josue Rojas Z",
     email: "josuerojas.rojas@gmail.com",
+    role: "admin",
   },
   {
     username: "Antonio Solis",

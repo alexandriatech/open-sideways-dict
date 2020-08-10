@@ -6,6 +6,7 @@ import LogOutButton from "components-app/LogOutButton";
 import { UserContext } from "components-app/UserContextProvider";
 import Heading from "components-shared/Heading";
 import Button from "components-shared/Button";
+import Link from "components-shared/Link";
 
 // TODO: these should be props passed down and should be saved in
 const HEADING_TEXT = "Please Login";
@@ -19,7 +20,22 @@ const Login = ({ className }) => {
   return (
     <div className={_className}>
       {!!user ? (
-        <LogOutButton render={(props) => <Button {...props}>Logout</Button>} />
+        <>
+          <Heading type={"h2"}>
+            Logged in as{" "}
+            <Link
+              appearance={"alt"}
+              href={`/user/${user.id}`}
+              color="white"
+              hoverColor="white"
+            >
+              {user.username}
+            </Link>
+          </Heading>
+          <LogOutButton
+            render={(props) => <Button {...props}>Logout</Button>}
+          />
+        </>
       ) : (
         <>
           <Heading>{HEADING_TEXT}</Heading>
