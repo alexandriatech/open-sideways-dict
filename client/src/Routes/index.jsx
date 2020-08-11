@@ -6,6 +6,8 @@ import { ThemeContext } from "components-shared/ThemeContextProvider";
 // josue: might use later so leaving it here
 // import AuthenticatedRoute from "components-app/AuthenticatedRoute";
 import About from "./About";
+import AddDef from "./AddDef";
+import AddWord from "./AddWord";
 import Home from "./Home";
 import Login from "./Login";
 import Share from "./Share";
@@ -60,6 +62,18 @@ const ROUTES = (isAuthenticated) => [
     path: "/login",
     Component: Login,
     title: "Login",
+  },
+  {
+    exact: true,
+    path: "/addword",
+    Component: AddWord,
+    title: "addWord",
+  },
+  {
+    exact: true,
+    path: "/addDef/:word",
+    Component: AddDef,
+    title: "addDef",
   },
   {
     exact: true,
