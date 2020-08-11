@@ -26,15 +26,19 @@ const Navbar = ({ className, links, title }) => {
           {title}
         </Link>
         <div className={styles.links}>
-          {links.map((linkProps, i) => (
-            <Link
-              color={_color}
-              hoverColor={_hoverColor}
-              key={`header-link-${i}`}
-              {...linkProps}
-              className={styles.link}
-            />
-          ))}
+          {links.map((linkProps, i) => {
+            if (linkProps)
+              return (
+                <Link
+                  color={_color}
+                  hoverColor={_hoverColor}
+                  key={`header-link-${i}`}
+                  {...linkProps}
+                  className={styles.link}
+                />
+              );
+            else return "";
+          })}
         </div>
       </nav>
     </>

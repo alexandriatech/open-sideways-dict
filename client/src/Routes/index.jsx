@@ -89,15 +89,10 @@ const NAV_LINKS = (role) => [
     children: role ? "Logout" : "Login",
     href: "/login",
   },
-  role === "admin"
-    ? {
-        children: "Admin",
-        href: "/admin",
-      }
-    : {
-        children: "",
-        href: "#",
-      },
+  role === "admin" && {
+    children: "Admin",
+    href: "/admin",
+  },
   {
     children: "About",
     href: "/about",

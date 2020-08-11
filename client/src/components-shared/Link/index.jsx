@@ -18,14 +18,14 @@ const Link = ({
   const _className = classNames(styles.link, className, styles[appearance]);
   const linkStyle = { color: currColor };
   const lineStyle = { backgroundColor: currColor };
-  const line = <div className={styles.line} style={lineStyle}></div>;
+  const line = <span className={styles.line} style={lineStyle}></span>;
 
   props.onMouseEnter = () => setCurrColor(hoverColor);
   props.onMouseLeave = () => setCurrColor(color);
 
   if (isExternal)
     return (
-      <a href className={_className} style={linkStyle} {...props}>
+      <a href={href} className={_className} style={linkStyle} {...props}>
         {children}
         {line}
       </a>

@@ -1,0 +1,87 @@
+.input {
+  display: block;
+  position: relative;
+  text-align: left;
+}
+
+.input input {
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0.199);
+  border-radius: 5px;
+  //   border-r;
+  //   color: var(--white);
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+
+  &:focus {
+    border-color: var(--our-blue);
+    outline: none;
+    outline-offset: 0;
+  }
+}
+
+// .hasClear input {
+//   width: calc(100% - 16px);
+// }
+
+// .input input:focus {
+//   outline: none;
+//   outline-offset: 0;
+// }
+// .input::before {
+//   //   background-color: var(--dark-gray);
+//   bottom: 2px;
+//   content: "";
+//   height: 2px;
+//   margin-left: 0;
+//   position: absolute;
+//   transition: margin 300ms, width 300ms;
+//   width: 100%;
+// }
+
+// .input::after {
+//   // background-color: var(--white);
+//   bottom: 2px;
+//   content: "";
+//   height: 2px;
+//   left: 0;
+//   margin-left: 50%;
+//   position: absolute;
+//   transition: margin 300ms, width 300ms;
+//   width: 0;
+// }
+
+// .input:focus-within::after {
+//   margin-left: 0;
+//   width: 100%;
+// }
+
+// .hasError::after {
+//   //   background-color: var(--red-ours);
+//   margin-left: 0;
+//   width: 100%;
+// }
+
+// .clear {
+//   background-color: lightgray;
+//   -webkit-marsk-size: cover;
+//   -webkit-mask-size: cover;
+//   -webkit-mask: url("../../assets/x.svg") 50% 50% no-repeat;
+//   cursor: pointer;
+//   display: none;
+//   height: 16px;
+//   margin-bottom: -2px;
+//   mask-size: cover;
+//   transition: background-color 0.4s;
+//   width: 16px;
+// }
+
+// .clear:hover {
+//   background-color: var(--white);
+// }
+
+// .hasClear .clear {
+//   display: inline-block;
+// }
