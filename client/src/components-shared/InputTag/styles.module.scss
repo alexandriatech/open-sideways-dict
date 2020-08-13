@@ -1,0 +1,59 @@
+.input {
+  display: block;
+  position: relative;
+  text-align: left;
+}
+
+.inputTag {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.199);
+  display: flex;
+  font-size: 16px;
+  margin-top: 10px;
+  min-height: 50px;
+  padding: 10px 10px 0;
+  position: relative;
+  text-align: left;
+  flex-wrap: wrap;
+
+  .tag {
+    align-items: center;
+    background-color: var(--our-blue);
+    border-radius: 5px;
+    color: var(--white);
+    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding: 5px 10px;
+  }
+
+  input {
+    border: 0;
+    font-size: 16px;
+    margin-bottom: 10px;
+
+    &:focus {
+      outline: none;
+      outline-offset: 0;
+    }
+  }
+
+  &:focus-within {
+    border-color: var(--our-blue);
+  }
+
+  .xClose {
+    cursor: pointer;
+    margin-left: 3px;
+  }
+
+  .hide {
+    position: absolute;
+    opacity: 0;
+    z-index: -9999;
+    left: -99999;
+    top: -99999;
+  }
+}
