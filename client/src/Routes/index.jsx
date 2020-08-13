@@ -110,6 +110,12 @@ const Routes = () => {
   const nodeRef = useRef(null);
 
   useEffect(() => {
+    // josue: a delay cause of the transition, it looks weird without it... gotta make it smooth like butta
+    const timeOut = setTimeout(() => window.scrollTo(0, 0), 299);
+    return () => clearTimeout(timeOut);
+  }, [location.pathname]);
+
+  useEffect(() => {
     const isMatchAltTheme = matchPath(location.pathname, {
       path: altThemeRoutes,
     });
