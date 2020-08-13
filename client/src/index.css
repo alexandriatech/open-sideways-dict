@@ -4,6 +4,8 @@
   /* --our-blue: #2528ff; */
   --rgb-our-blue: 97, 104, 219;
   --our-blue: rgb(var(--rgb-our-blue));
+  --rgb-our-red: 255, 0, 0;
+  --our-red: rgb(var(--rgb-our-red));
 }
 
 *,
