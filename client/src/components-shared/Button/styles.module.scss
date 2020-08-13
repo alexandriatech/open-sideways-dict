@@ -23,7 +23,8 @@
 
 .alt {
   background-color: var(--our-blue);
-  border-color: var(--white);
+  border-color: var(--our-blue);
+  // border-color: var(--white);
   color: var(--white);
   &:hover {
     background-color: var(--white);

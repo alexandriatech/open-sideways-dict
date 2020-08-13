@@ -6,6 +6,8 @@ import { ThemeContext } from "components-shared/ThemeContextProvider";
 // josue: might use later so leaving it here
 // import AuthenticatedRoute from "components-app/AuthenticatedRoute";
 import About from "./About";
+import AddDef from "./AddDef";
+import AddWord from "./AddWord";
 import Home from "./Home";
 import Login from "./Login";
 import Share from "./Share";
@@ -63,6 +65,18 @@ const ROUTES = (isAuthenticated) => [
   },
   {
     exact: true,
+    path: "/addword",
+    Component: AddWord,
+    title: "addWord",
+  },
+  {
+    exact: true,
+    path: "/addDef/:word",
+    Component: AddDef,
+    title: "addDef",
+  },
+  {
+    exact: true,
     path: "/*",
     Component: NoMatch,
     title: "404",
@@ -75,15 +89,10 @@ const NAV_LINKS = (role) => [
     children: role ? "Logout" : "Login",
     href: "/login",
   },
-  role === "admin"
-    ? {
-        children: "Admin",
-        href: "/admin",
-      }
-    : {
-        children: "",
-        href: "#",
-      },
+  role === "admin" && {
+    children: "Admin",
+    href: "/admin",
+  },
   {
     children: "About",
     href: "/about",
