@@ -33,7 +33,7 @@ const Tag = ({ className }) => {
   const { loading, error, data } = useQuery(GET_TAG_DATA, {
     variables: { tag },
   });
-  const _className = classNames(className, styles.tagPage);
+  const _className = classNames(className, styles.tagPage, "pageContainer");
 
   //   TODO: implement
   if (loading) return null;

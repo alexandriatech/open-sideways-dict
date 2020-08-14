@@ -26,7 +26,7 @@ const AddWord = ({ className }) => {
   });
   const [addWord, { data, loading, error }] = useMutation(ADD_WORD);
 
-  const _className = classNames(className, styles.addWord);
+  const _className = classNames(className, styles.addWord, "pageContainer");
 
   //   (josue: TODO) loading state
   if (loading) return <p>Loading...</p>;

@@ -22,7 +22,7 @@ const Home = ({ className }) => {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const textInputRef = useRef(null);
   const { loading, error, data } = useQuery(GET_ALL_WORDS);
-  const _className = classNames(className, styles.homePage);
+  const _className = classNames(className, styles.homePage, "pageContainer");
 
   // TODO: handle loading
   if (loading) return "";
@@ -60,7 +60,6 @@ const Home = ({ className }) => {
             styles.inputChild
           )}
           src={SearchIcon}
-          width={"56px"}
           onClick={() => toggleSearch(!isSearchActive)}
         />
       </div>

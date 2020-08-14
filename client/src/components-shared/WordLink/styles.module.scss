@@ -25,7 +25,7 @@
 
 .link {
   text-decoration: none;
-  font-size: 5rem;
+  font-size: inherit;
   &:hover .transparent,
   &:hover .highlighted,
   &:hover .highlightedConsecutive {

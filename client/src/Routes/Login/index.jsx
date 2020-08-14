@@ -15,7 +15,7 @@ const SIGNIN_TEXT = "Sign in with Google";
 
 const Login = ({ className }) => {
   const { user } = useContext(UserContext);
-  const _className = classNames(className, styles.loginPage);
+  const _className = classNames(className, styles.loginPage, "pageContainer");
 
   return (
     <div className={_className}>

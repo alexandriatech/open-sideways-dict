@@ -35,7 +35,7 @@ const Word = ({ className }) => {
     variables: { word },
     fetchPolicy: "no-cache",
   });
-  const _className = classNames(className, styles.wordPage);
+  const _className = classNames(className, styles.wordPage, "pageContainer");
 
   //   TODO: implement
   if (loading) return null;
