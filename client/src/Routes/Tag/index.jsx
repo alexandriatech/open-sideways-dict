@@ -42,14 +42,20 @@ const Tag = ({ className }) => {
   let wordList;
   const { getTagByTag } = data;
 
-  if (!getTagByTag) noWordsText = `${tag} not found!`;
+  if (!getTagByTag) noWordsText = `Tag: ${tag} not found!`;
   else if (!getTagByTag.wordsDefs.length)
-    noWordsText = `no entries found for ${tag}`;
+    noWordsText = `No entries found for tag: ${tag}`;
   else wordList = getTagByTag.wordsDefs;
+
+  const headingText = `Entries with tag: ${tag}`;
 
   return (
     <div className={_className}>
-      <WordList headingText={tag} noWordsText={noWordsText} words={wordList} />
+      <WordList
+        headingText={headingText}
+        noWordsText={noWordsText}
+        words={wordList}
+      />
     </div>
   );
 };
