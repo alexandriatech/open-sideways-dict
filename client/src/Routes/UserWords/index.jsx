@@ -30,7 +30,7 @@ const UserWords = ({ className }) => {
   const { loading, error, data } = useQuery(GET_ALL_WORDS, {
     variables: { id: parseInt(id) },
   });
-  const _className = classNames(className, styles.userPage);
+  const _className = classNames(className, styles.userPage, "pageContainer");
 
   //   TODO: implement
   if (loading) return null;

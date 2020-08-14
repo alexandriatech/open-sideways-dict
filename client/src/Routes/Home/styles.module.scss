@@ -1,3 +1,5 @@
+@import "../../mixins.scss";
+
 .altArrow {
   .altArrowIcon {
     background-image: url("../../assets/arrow-right-alt.svg");
@@ -14,10 +16,20 @@
   color: var(--our-blue);
   display: flex;
   flex-direction: column;
-  font-size: 5rem;
+  font-size: 2.5rem;
+  max-width: 100%;
+  overflow: hidden;
   padding: 30px 10px;
   text-align: center;
   width: 100%;
+
+  @include medium-devices {
+    font-size: 4rem;
+  }
+
+  @include large-devices {
+    font-size: 5rem;
+  }
 
   .inputWrapper {
     display: flex;
@@ -34,7 +46,19 @@
 
   .searchIcon {
     cursor: pointer;
+    height: 2.7rem;
     position: absolute;
+    width: 2.7rem;
+
+    @include medium-devices {
+      height: 3.7rem;
+      width: 3.7rem;
+    }
+
+    @include large-devices {
+      height: 4rem;
+      width: 4rem;
+    }
   }
 
   .inputChild {

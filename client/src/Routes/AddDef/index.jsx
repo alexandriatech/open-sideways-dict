@@ -42,7 +42,7 @@ const AddDef = ({ className }) => {
     addDefMutation,
     { data: addDefMutationData, addDefMutationLoading, addDefMutationError },
   ] = useMutation(ADD_DEF_WORD);
-  const _className = classNames(className, styles.addDefPage);
+  const _className = classNames(className, styles.addDefPage, "pageContainer");
 
   //   TODO: implement
   if (loading || addDefMutationLoading) return null;

@@ -34,7 +34,7 @@ const Share = ({ className }) => {
   const { loading, error, data } = useQuery(GET_WORD_DATA, {
     variables: { id: parseInt(id) },
   });
-  const _className = classNames(className, styles.wordPage);
+  const _className = classNames(className, styles.wordPage, "pageContainer");
   let rendered, shareButtons;
 
   //   TODO: implement

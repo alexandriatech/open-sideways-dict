@@ -23,3 +23,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
 }
+
+.pageContainer {
+  margin: auto;
+  max-width: 500px;
+  padding: 10px;
+  text-align: center;
+}

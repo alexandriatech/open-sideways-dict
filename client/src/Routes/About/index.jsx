@@ -6,7 +6,7 @@ import Heading from "components-shared/Heading";
 import Link from "components-shared/Link";
 
 const About = ({ className }) => (
-  <div className={classNames(className, styles.aboutPage)}>
+  <div className={classNames(className, styles.aboutPage, "pageContainer")}>
     <Heading>About Page</Heading>
     <p>
       Open Sideways Dictionary is inspired by the real{" "}
