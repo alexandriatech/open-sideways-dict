@@ -31,7 +31,7 @@ const AddWord = ({ className }) => {
   //   (josue: TODO) loading state
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
-  if (data) return <Redirect to={`/word/${wordValue.value}`} />;
+  if (data) return <Redirect to={`/word/${wordValue.value.toLowerCase()}`} />;
 
   const onSubmit = (e) => {
     e.preventDefault();

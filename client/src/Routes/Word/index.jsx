@@ -33,6 +33,7 @@ const Word = ({ className }) => {
   const { word } = useParams();
   const { loading, error, data } = useQuery(GET_WORD_DATA, {
     variables: { word },
+    fetchPolicy: "no-cache",
   });
   const _className = classNames(className, styles.wordPage);
 

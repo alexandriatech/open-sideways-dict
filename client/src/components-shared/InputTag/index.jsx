@@ -37,7 +37,7 @@ const InputTag = ({
 
   const addTag = () => {
     const _inputValue = inputValue.trim();
-    if (!tags.includes(_inputValue)) {
+    if (!tags.includes(_inputValue) && _inputValue.length) {
       const _tags = [...tags];
       _tags.push(_inputValue);
       onChange(_tags);
