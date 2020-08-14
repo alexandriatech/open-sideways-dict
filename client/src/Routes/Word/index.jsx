@@ -46,12 +46,16 @@ const Word = ({ className }) => {
 
   if (!getWordByWord) noWordsText = `${word} not found!`;
   else if (!getWordByWord.wordData.length)
-    noWordsText = `no entries found for ${word}`;
+    noWordsText = `No entries found for ${word}`;
   else wordList = getWordByWord.wordData;
 
   return (
     <div className={_className}>
-      <WordList headingText={word} noWordsText={noWordsText} words={wordList} />
+      <WordList
+        headingText={`Entries for ${word}`}
+        noWordsText={noWordsText}
+        words={wordList}
+      />
     </div>
   );
 };

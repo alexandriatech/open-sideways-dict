@@ -47,7 +47,7 @@ const Tag = ({ className }) => {
     noWordsText = `No entries found for tag: ${tag}`;
   else wordList = getTagByTag.wordsDefs;
 
-  const headingText = `Definitions with tag: ${tag}`;
+  const headingText = `Entries with tag: ${tag}`;
 
   return (
     <div className={_className}>

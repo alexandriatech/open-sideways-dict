@@ -42,12 +42,16 @@ const UserWords = ({ className }) => {
 
   if (!getUser) noWordsText = `User not found!`;
   else if (!getUser.wordDefs.length)
-    noWordsText = `no entries found for User id ${id}`;
+    noWordsText = `No entries found for user: ${getUser.username}`;
   else wordList = getUser.wordDefs;
 
   return (
     <div className={_className}>
-      <WordList headingText={id} noWordsText={noWordsText} words={wordList} />
+      <WordList
+        headingText={getUser && `Entries by ${getUser.username}`}
+        noWordsText={noWordsText}
+        words={wordList}
+      />
     </div>
   );
 };
