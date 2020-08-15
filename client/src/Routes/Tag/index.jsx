@@ -6,6 +6,11 @@ import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 import WordList from "components-app/WordList";
 import GradientBottom from "components-shared/GradientBottom";
+import {
+  TAG_NOT_DOUND,
+  TAG_NO_ENTRIES,
+  TAG_ENTRIES_FOUND,
+} from "constants/index";
 
 const GET_TAG_DATA = gql`
   query TAG($tag: String!) {
@@ -43,12 +48,11 @@ const Tag = ({ className }) => {
   let wordList;
   const { getTagByTag } = data;
 
-  if (!getTagByTag) noWordsText = `Tag: ${tag} not found!`;
-  else if (!getTagByTag.wordsDefs.length)
-    noWordsText = `No entries found for tag: ${tag}`;
+  if (!getTagByTag) noWordsText = TAG_NOT_DOUND`${tag}`;
+  else if (!getTagByTag.wordsDefs.length) noWordsText = TAG_NO_ENTRIES`${tag}`;
   else wordList = getTagByTag.wordsDefs;
 
-  const headingText = `Entries with tag: ${tag}`;
+  const headingText = TAG_ENTRIES_FOUND`${tag}`;
 
   return (
     <div className={_className}>

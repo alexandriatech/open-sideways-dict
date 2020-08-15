@@ -65,7 +65,7 @@ const AddDef = ({ className }) => {
         },
       });
     // TODO: implement error
-    else console.log("hass error missing field");
+    else console.log("has error missing field");
   };
 
   if (addDefMutationData) {

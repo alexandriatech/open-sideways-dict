@@ -7,6 +7,12 @@ import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 import WordList from "components-app/WordList";
 import GradientBottom from "components-shared/GradientBottom";
+import {
+  ENTRIES_FOUND,
+  NO_ENTRIES_TEXT,
+  NO_WORD_TEXT,
+  QUERY_ERROR,
+} from "constants/index";
 
 const GET_WORD_DATA = gql`
   query WORD($word: String!) {
@@ -40,20 +46,20 @@ const Word = ({ className }) => {
 
   //   TODO: implement
   if (loading) return null;
-  if (error) return `Error! ${error}`;
+  if (error) return QUERY_ERROR`${error}`;
   let noWordsText;
   let wordList;
   const { getWordByWord } = data;
 
-  if (!getWordByWord) noWordsText = `${word} not found!`;
+  if (!getWordByWord) noWordsText = NO_WORD_TEXT`${word}`;
   else if (!getWordByWord.wordData.length)
-    noWordsText = `No entries found for ${word}`;
+    noWordsText = NO_ENTRIES_TEXT`${word}`;
   else wordList = getWordByWord.wordData;
 
   return (
     <div className={_className}>
       <WordList
-        headingText={`Entries for ${word}`}
+        headingText={ENTRIES_FOUND`${word}`}
         noWordsText={noWordsText}
         words={wordList}
       />
