@@ -2,7 +2,6 @@
 
 .header {
   align-items: center;
-  backdrop-filter: blur(2px);
   display: flex;
   justify-content: space-between;
   left: 0;
@@ -11,7 +10,13 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-
+  .wordListGradientTop {
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: -5;
+  }
   .title {
     font-size: 1.04rem;
     font-weight: 500;
@@ -23,7 +28,14 @@
 }
 
 :global(.default) .header {
-  background-color: rgba(var(--rgb-white), 0.7);
+  .wordListGradientTop {
+    background: var(--white);
+    background: linear-gradient(
+      180deg,
+      var(--white) 20%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
 }
 
 :global(.alt) .header {

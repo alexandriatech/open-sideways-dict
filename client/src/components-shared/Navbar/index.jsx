@@ -16,6 +16,7 @@ const Navbar = ({ className, links, title }) => {
     <>
       <div className={styles.headerSpace}></div>
       <nav className={_className} key={theme}>
+        <div className={styles.wordListGradientTop}></div>
         <Link
           appearance="noline"
           className={styles.title}
