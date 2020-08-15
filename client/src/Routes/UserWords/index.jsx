@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 import WordList from "components-app/WordList";
+import GradientBottom from "components-shared/GradientBottom";
 
 const GET_ALL_WORDS = gql`
   query User($id: Int!) {
@@ -52,6 +53,7 @@ const UserWords = ({ className }) => {
         noWordsText={noWordsText}
         words={wordList}
       />
+      <GradientBottom />
     </div>
   );
 };

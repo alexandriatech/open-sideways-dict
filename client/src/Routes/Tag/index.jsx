@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 import WordList from "components-app/WordList";
+import GradientBottom from "components-shared/GradientBottom";
 
 const GET_TAG_DATA = gql`
   query TAG($tag: String!) {
@@ -56,6 +57,7 @@ const Tag = ({ className }) => {
         noWordsText={noWordsText}
         words={wordList}
       />
+      <GradientBottom />
     </div>
   );
 };
