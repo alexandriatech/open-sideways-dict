@@ -4,6 +4,7 @@ import classNames from "classnames";
 import styles from "./styles.module.scss";
 import { ThemeContext } from "components-shared/ThemeContextProvider";
 import Link from "components-shared/Link";
+import { NAV_TITLE } from "constants/index";
 
 const Navbar = ({ className, links, title }) => {
   const { theme } = useContext(ThemeContext);
@@ -63,7 +64,7 @@ Navbar.defaultProps = {
       href: "/about",
     },
   ],
-  title: "Open Sideway's Dictionary",
+  title: NAV_TITLE,
 };
 
 export default Navbar;

@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import styles from "./styles.module.scss";
 import Heading from "components-shared/Heading";
 import Button from "components-shared/Button";
+import { SHARE_TITLE } from "constants/index";
 
 const GET_WORD_DATA = gql`
   query WORD($id: Int!) {
@@ -42,7 +43,7 @@ const Share = ({ className }) => {
   if (error) rendered = `${error}`;
   else {
     const { getWordDef } = data;
-    if (!getWordDef) rendered = "Definition to share not found!";
+    if (!getWordDef) rendered = SHARE_TITLE;
     else {
       rendered = (
         <>
