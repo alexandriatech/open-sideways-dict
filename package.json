@@ -5,12 +5,12 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "prefix:client": "yarn workspace client",
-    "prefix:server": "yarn workspace server",
-    "start:client": "yarn prefix:client start",
-    "start:server": "PORT=4000; yarn prefix:server start-dev",
-    "start": "yarn prefix:server start",
-    "heroku-postbuild": "yarn prefix:client build"
+    "client": "yarn workspace client",
+    "server": "yarn workspace server",
+    "start:client": "yarn client start",
+    "start:server": "PORT=4000; yarn server start-dev",
+    "start": "yarn server start",
+    "heroku-postbuild": "yarn client build"
   },
   "repository": {
     "type": "git",

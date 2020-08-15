@@ -19,6 +19,7 @@ import Word from "./Word";
 import NoMatch from "./NoMatch";
 import Navbar from "components-shared/Navbar";
 import { useEffect } from "react";
+import Admin from "./Admin";
 
 const ROUTES = (isAuthenticated) => [
   {
@@ -74,6 +75,12 @@ const ROUTES = (isAuthenticated) => [
     path: "/addDef/:word",
     Component: AddDef,
     title: "addDef",
+  },
+  {
+    exact: true,
+    path: "/admin",
+    Component: Admin,
+    title: "Admin",
   },
   {
     exact: true,
