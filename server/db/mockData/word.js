@@ -23,9 +23,28 @@ const words = [
     word: "chupacabra",
     isPublish: true,
   },
-
   {
     word: "chupacabrachupacabra",
+    isPublish: true,
+  },
+  {
+    word: "iguana",
+    isPublish: true,
+  },
+  {
+    word: "horse",
+    isPublish: true,
+  },
+  {
+    word: "chicken",
+    isPublish: true,
+  },
+  {
+    word: "lion",
+    isPublish: true,
+  },
+  {
+    word: "tiger",
     isPublish: true,
   },
 ];
