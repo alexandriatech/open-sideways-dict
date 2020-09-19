@@ -56,6 +56,7 @@ const Word = ({ className }) => {
     noWordsText = NO_ENTRIES_TEXT`${word}`;
   else wordList = getWordByWord.wordData;
 
+  console.log(word);
   return (
     <div className={_className}>
       <WordList
