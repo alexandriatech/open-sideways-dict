@@ -22,5 +22,8 @@
   "workspaces": [
     "client",
     "server"
-  ]
+  ],
+  "dependencies": {
+    "rc-table": "^7.13.1"
+  }
 }
