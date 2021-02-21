@@ -56,13 +56,13 @@ const Word = ({ className }) => {
     noWordsText = NO_ENTRIES_TEXT`${word}`;
   else wordList = getWordByWord.wordData;
 
-  console.log(word);
   return (
     <div className={_className}>
       <WordList
         headingText={ENTRIES_FOUND`${word}`}
         noWordsText={noWordsText}
         words={wordList}
+        word={word}
       />
       <GradientBottom />
     </div>
