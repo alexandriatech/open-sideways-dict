@@ -76,11 +76,24 @@
     font-size: 3rem;
   }
 
-  .wordList:empty + .noWordFound {
+  .wordList:empty + .newWord + .noWordFound {
     display: block;
     max-width: 100%;
     overflow: hidden;
     word-wrap: break-word;
+  }
+
+  .newWord {
+    color: var(--our-blue);
+    cursor: pointer;
+    font-size: inherit;
+    margin-bottom: 20px;
+    opacity: 0.3;
+    text-decoration: none;
+    transition: opacity 200ms;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
