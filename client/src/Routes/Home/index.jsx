@@ -6,8 +6,9 @@ import styles from "./styles.module.scss";
 import WordLink from "components-shared/WordLink";
 import TextInput from "components-shared/TextInput";
 import Icon from "components-shared/Icon";
-import SearchIcon from "assets/search.svg";
+import SearchIcon from "assets/search.svg"
 import GradientBottom from "components-shared/GradientBottom";
+import { Link } from "react-router-dom";;
 
 const GET_ALL_WORDS = gql`
   {
@@ -18,7 +19,7 @@ const GET_ALL_WORDS = gql`
   }
 `;
 
-const Home = ({ className }) => {
+const Home = ({ className, user }) => {
   const [wordSearch, setWordSearchValue] = useState("");
   const [isSearchActive, setIsSearchActive] = useState(false);
   const textInputRef = useRef(null);
@@ -77,6 +78,9 @@ const Home = ({ className }) => {
           />
         ))}
       </div>
+      {!!user && <Link className={styles.newWord} to={'/addWord'}>
+        + new word
+      </Link>}
       <div className={styles.noWordFound} onClick={() => toggleSearch(true)}>
         No Word found with search: {wordSearch}
       </div>

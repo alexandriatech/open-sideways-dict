@@ -150,7 +150,7 @@ const Routes = () => {
             {routes.map(({ Component, ...routeProps }, i) => (
               <Route key={routeProps.path} {...routeProps}>
                 <div ref={nodeRef}>
-                  <Component />
+                  <Component user={user}/>
                 </div>
               </Route>
             ))}
