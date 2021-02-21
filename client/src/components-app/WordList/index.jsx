@@ -30,6 +30,7 @@ const WordList = ({ className, headingText, noWordsText, words, word }) => {
             username={user ? user.username : null}
             votes={votes}
             word={word}
+            user={user}
           />
         ))}
     </div>

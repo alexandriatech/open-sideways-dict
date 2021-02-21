@@ -12,6 +12,7 @@ const WordEntry = ({
   definition,
   id,
   tags,
+  user,
   userId,
   username,
   votes,
@@ -43,7 +44,7 @@ const WordEntry = ({
           {definition}
         </div>
       </div>
-      <div className={styles.votes}>
+      <div className={classNames(styles.votes, {[styles.disabledVotes]: !!user})}>
         <Icon
           className={styles.icon}
           src={chevronUp}
@@ -94,6 +95,7 @@ WordEntry.propTypes = {
   definition: PropTypes.string,
   id: PropTypes.number,
   tags: PropTypes.array,
+  user: PropTypes.any,
   userId: PropTypes.number,
   username: PropTypes.string,
   votes: PropTypes.number,
