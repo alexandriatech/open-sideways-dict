@@ -27,9 +27,16 @@
   margin: 0 5px;
   opacity: 0.6;
   transition: 200ms;
-  cursor: not-allowed;
   &:hover {
     opacity: 1;
+  }
+}
+
+.disabledVotes {
+  cursor: not-allowed;
+
+  .icon:hover {
+    opacity: 0.6;
   }
 }
 
