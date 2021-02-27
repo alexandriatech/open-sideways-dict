@@ -14,6 +14,11 @@ const GET_UNPUBLISHED_WORDS = gql`
       createdAt
       isPublish
     }
+    getAllUsers {
+      username
+      role
+      email
+    }
   }
 `;
 

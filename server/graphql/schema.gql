@@ -6,6 +6,7 @@ type Query {
   getTagByTag(tag: String!): Tag
   getTagByTagId(id: Int!): Tag
   getUser(id: Int!): User
+  getAllUsers: [User!]!
   getWordById(id: Int!): Word
   getWordByWord(word: String!): Word
   getWordDef(id: Int!): WordData

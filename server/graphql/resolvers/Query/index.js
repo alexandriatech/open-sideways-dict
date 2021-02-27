@@ -1,4 +1,4 @@
-const { runIfAuthenticated } = require("../../utils");
+const { runIfAdmin } = require("../../utils");
 const { db } = require("../../../db");
 const { allWords } = require("./allWords");
 
@@ -12,6 +12,10 @@ async function getTagByTagId(id, context) {
 
 async function getUser(id, context) {
   return await db.User.findByPk(id);
+}
+
+async function getAllUsers () {
+  return await db.User.findAll();
 }
 
 async function getWordById(id, context) {
@@ -31,6 +35,7 @@ const Query = {
   getTagByTag: (_, { tag }, context) => getTagByTag(tag, context),
   getTagByTagId: (_, { id }, context) => getTagByTagId(id, context),
   getUser: (_, { id }, context) => getUser(id, context),
+  getAllUsers: (_, __, ___, ____) => runIfAdmin(_, __, ___, ____, getAllUsers), 
   getWordById: (_, { id }, context) => getWordById(id, context),
   getWordByWord: (_, { word }, context) => getWordByWord(word, context),
   getWordDef: (_, { id }, context) => getWordDef(id, context),
