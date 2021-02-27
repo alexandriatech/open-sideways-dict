@@ -8,10 +8,11 @@ import { useQuery } from "@apollo/react-hooks";
 
 const GET_UNPUBLISHED_WORDS = gql`
   query {
-    allWords(input: { isPublish: false, sortBy: createdAt }) {
+    allWords(input: { sortBy: createdAt }) {
       id
       word
       createdAt
+      isPublish
     }
   }
 `;

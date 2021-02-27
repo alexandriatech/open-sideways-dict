@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";;
 
 const GET_ALL_WORDS = gql`
   {
-    allWords {
+    allWords(input: { isPublish: true }) {
       isPublish
       word
     }
