@@ -8,7 +8,7 @@ const DEFAUL_AllWordInput = {
 async function allWords(input, context) {
   // set the defaults for inputs and replace them with user inputs
   const { isPublish, sortBy, asc } = { ...DEFAUL_AllWordInput, ...input };
-
+  
   let where = {}
   if(typeof isPublish === 'boolean') where.isPublish = isPublish
 

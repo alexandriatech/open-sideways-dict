@@ -22,6 +22,7 @@ type Mutation {
   updateUserSelf(user: UpdateUserSelfData!): User!
   addWordDef(wordDef: AddWordInput!): WordData!
   addWord(word: String!): Word!
+  updateWord(wordData: UpdateWordData): Word!
 }
 
 # -------------
@@ -105,6 +106,11 @@ input AllWordInput {
   asc: Boolean
   isPublish: Boolean
   sortBy: AllWordsSort
+}
+
+input UpdateWordData {
+  id: Int!
+  isPublish: Boolean!
 }
 
 # -------------
