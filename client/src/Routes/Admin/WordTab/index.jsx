@@ -5,7 +5,7 @@ import gql from "graphql-tag";
 import { useMutation } from '@apollo/react-hooks';
 
 const UpdateWord = gql`
-  mutation UpdateWord($wordData: UpdateWordData){
+  mutation UpdateWord($wordData: UpdateWordData!){
     updateWord(wordData: $wordData) {
       word
       isPublish
