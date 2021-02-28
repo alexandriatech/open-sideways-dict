@@ -67,6 +67,7 @@ const Home = ({ className, user }) => {
       </div>
 
       <div className={styles.wordList}>
+        {!data.allWords.length && <span></span>}
         {data.allWords.map(({ word }) => (
           <WordLink
             className={styles.wordLink}
