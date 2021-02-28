@@ -12,7 +12,14 @@ function runIfAuthenticated(parent, args, context, info, resolver) {
   else throw new AuthenticationError("Unauthorized");
 }
 
+function runIfAdmin (parent, args, context, info, resolver) {
+  if (context[IS_AUTHENTICATED_CONTEXT] && context.currentUser && context.currentUser.role === 'admin')
+    return resolver(parent, args, context, info);
+  else throw new AuthenticationError("Unauthorized: Admin only route");
+}
+
 module.exports = {
   isAuthenticated,
   runIfAuthenticated,
+  runIfAdmin,
 };
