@@ -3,6 +3,8 @@ const words = require("../mockData").data.word.words;
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    if (!words.length) return Promise.resolve();
+
     return queryInterface.bulkInsert("Words", words, {});
   },
 
