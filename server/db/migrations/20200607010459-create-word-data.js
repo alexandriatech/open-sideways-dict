@@ -9,16 +9,23 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       word_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       user_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       definition: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       votes: {
         type: Sequelize.INTEGER,
+      },
+      isPublish: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
