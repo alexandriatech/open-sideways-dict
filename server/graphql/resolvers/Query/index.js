@@ -30,6 +30,10 @@ async function getWordDef(id, context) {
   return await db.Word_data.findByPk(id);
 }
 
+async function getAllWordsDef () {
+  return await db.Word_data.findAll()
+}
+
 const Query = {
   allWords: (_, { input }, context) => allWords(input, context),
   getTagByTag: (_, { tag }, context) => getTagByTag(tag, context),
@@ -38,6 +42,7 @@ const Query = {
   getAllUsers: (_, __, ___, ____) => runIfAdmin(_, __, ___, ____, getAllUsers), 
   getWordById: (_, { id }, context) => getWordById(id, context),
   getWordByWord: (_, { word }, context) => getWordByWord(word, context),
+  getAllWordsDef: (_, __, ___) => getAllWordsDef(),
   getWordDef: (_, { id }, context) => getWordDef(id, context),
 };
 

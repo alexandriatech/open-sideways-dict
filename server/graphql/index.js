@@ -11,7 +11,7 @@ const { IS_AUTHENTICATED_CONTEXT } = require("../constants");
 const context = ({ req, res }) => {
   const token = req.headers.authorization;
   const currentUser = !!token && jwt.verify(token, process.env.JWT_SECRET);
-  if (currentUser) currentUser.dataValues = { ...currentUser };
+
   return {
     req,
     res,

@@ -9,10 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       word: {
+        allowNull: false,
         type: Sequelize.STRING,
         unique: true,
       },
       isPublish: {
+        allowNull: false,
         type: Sequelize.BOOLEAN,
       },
       createdAt: {

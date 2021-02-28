@@ -7,6 +7,9 @@ module.exports = (sequelize, DataTypes) => {
       word_id: DataTypes.INTEGER,
       user_id: DataTypes.INTEGER,
       definition: DataTypes.STRING,
+      // the default of isPublish might change in the future 
+      // if we allow only admins to approve wordds
+      isPublish: { defaultValue: true, type: DataTypes.BOOLEAN },
       votes: {
         type: DataTypes.INTEGER,
         async get() {
