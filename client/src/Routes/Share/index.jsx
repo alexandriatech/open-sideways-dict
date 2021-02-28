@@ -22,7 +22,7 @@ const GET_WORD_DATA = gql`
 const SUPPORTED_SHARE_BUTTONS_DATA = [
   {
     text: "Share Twitter",
-    link: (message) => `https://twitter.com/home?status=${message}`,
+    link: (message) => `https://twitter.com/intent/tweet?text=${message}`,
   },
   {
     text: "Share Facebook",
