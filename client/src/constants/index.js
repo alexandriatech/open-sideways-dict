@@ -8,7 +8,7 @@ export const NAV_TITLE = "Open Sideways Dictionary";
 
 // LOGIN PAGE
 export const HEADING_TEXT = "Please Login";
-export const SUBHEADING_TEXT = "and explain the Javascript World!";
+export const SUBHEADING_TEXT = "and explain the Finance World!";
 export const SIGNIN_TEXT = "Sign in with Google";
 
 // ABOUT PAGE
