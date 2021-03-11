@@ -6,7 +6,7 @@ const port = process.env.PORT || 4000;
 const path = require("path");
 const publicFolder = "../build";
 
-const WHITELIST_URLS = [process.env.FRONTEND_URL || 'http://example.coms']
+const WHITELIST_URLS = [process.env.FRONTEND_URL || 'http://example.coms', 'https://opensideways.herokuapp.com']
 const corsOptions = {
   origin: function (origin, callback) {
     if (WHITELIST_URLS.indexOf(origin) !== -1) {
