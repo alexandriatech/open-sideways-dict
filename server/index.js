@@ -6,7 +6,7 @@ const port = process.env.PORT || 4000;
 const path = require("path");
 const publicFolder = "../build";
 
-const WHITELIST_URLS = [process.env.FRONTEND_URL || 'http://example.coms', 'https://opensideways.herokuapp.com']
+const WHITELIST_URLS = [process.env.FRONTEND_URL || 'http://example.coms', 'https://opensideways.herokuapp.com', 'https://upbeat-hawking-111d88.netlify.app']
 const corsOptions = {
   origin: function (origin, callback) {
     if (WHITELIST_URLS.indexOf(origin) !== -1) {
