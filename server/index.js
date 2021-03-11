@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require('cors');
 const server = require("./graphql");
 const port = process.env.PORT || 4000;
 const path = require("path");
