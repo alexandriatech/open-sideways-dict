@@ -6,10 +6,10 @@ const port = process.env.PORT || 4000;
 const path = require("path");
 const publicFolder = "../build";
 
-const WHITELIST_URLS = [process.env.FRONTEND_URL || 'http://example.coms', 'https://opensideways.herokuapp.com', 'https://upbeat-hawking-111d88.netlify.app']
+const WHITELIST_URLS = [process.env.FRONTEND_URL || 'https://opensideways.herokuapp.com', 'https://upbeat-hawking-111d88.netlify.app']
 const corsOptions = {
   origin: function (origin, callback) {
-    if (WHITELIST_URLS.indexOf(origin) !== -1) {
+    if (!origin || WHITELIST_URLS.indexOf(origin) !== -1) {
       callback(null, true)
     } else {
       callback(new Error('Not allowed by CORS'))
