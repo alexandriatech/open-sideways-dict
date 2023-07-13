@@ -27,7 +27,7 @@
     "passport-google-token": "^0.1.2",
     "pg": "^8.0.0",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.6",
+    "sequelize": "^6.29.0",
     "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
